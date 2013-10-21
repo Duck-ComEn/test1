@@ -1,0 +1,13 @@
+CC = g++ -DNEPTUNE_CLIENT_BUILD
+LIBS = -lpthread 
+FLAGS = -O 
+EXECS = updatediofw
+USER_OBJS := libsi.a neptune_sio2.a librpclib.a 
+
+all: $(EXECS)
+
+updatediofw: updatediofw.cpp 
+	$(CC) $(FLAGS) -o $@ $? $(LIBS) $(USER_OBJS)
+
+clean:
+	rm $(EXECS)

@@ -1,0 +1,197 @@
+//bCellNo:1
+//wCellIndex:1
+//wTrayIndex:0
+//
+// hgst cell id of one start (1, 2, ...). it should be located at top line
+// note - must be 1 for xcal, 13 for optimus in xyratex lab on April/2010
+//
+// --------------------------------------------------------------------------------------
+// Keyword  Name                                           Value
+// --------------------------------------------------------------------------------------
+TEST_PARAM  isTestMode                                     0     5   512  0  // [arg1]  0: normal test script
+                                                                             //         1: HOST_COM_LOOPBACK_TEST
+                                                                             //         2: HOST_COM_DOWNLOAD_TEST
+                                                                             //         3: HOST_COM_MESSAGE_TEST
+                                                                             //         4: HOST_COM_UPLOAD_TEST
+                                                                             //         5: DRIVE_COM_READ_TEST
+                                                                             //         6: DRIVE_COM_READ_THEN_HOST_COM_UPLOAD_TEST
+                                                                             // [arg2]  num of data
+                                                                             // [arg3]  data size in byte
+                                                                             // [arg4]  momory address
+TEST_PARAM  bTestResultFileName                            "/result/00000001.000"             // 100 bytes max
+TEST_PARAM  bTestPfTableFileName                           "c:/!lts/!system/!etc/ec2pf.tbl"   // 100 bytes max
+TEST_PARAM  bTestMfgId                                     "P?????"                           // 6 bytes. '?' is wild card
+TEST_PARAM  bTestLabelMfgIdOffset                          0                                  // 0 for PTB, 2 for STN
+TEST_PARAM  bTestSerialNumber                              "????????"                         // 8 bytes. '?' is wild card
+TEST_PARAM  bTestDefaultBadHeadTable                       0x9 0x8 0x7 0x6 0x5 0x4 0x3 0x2 0x1 0x0
+                                                           // GMK 10HD 0x9 0x8 0x7 0x6 0x5 0x4 0x3 0x2 0x1 0x0
+                                                           // GMK  8HD 0x7 0x6 0x5 0x4 0x3 0x2 0x1 0x0 0xf 0xf
+                                                           // GMK  6HD 0x7 0x6 0x5 0x4 0x3 0x2 0xf 0xf 0xf 0xf
+TEST_PARAM  dwDriveTestElapsedTimeSec                      0000:00:00 // hhhh:mm:ss
+TEST_PARAM  dwDriveTestIdentifyTimeoutSec                  0000:03:00 // hhhh:mm:ss
+TEST_PARAM  dwDriveTestStatusPollingIntervalTimeSec        0000:00:10 // hhhh:mm:ss
+TEST_PARAM  dwDriveTestCutoffTimeoutSec                    0000:05:00 // hhhh:mm:ss
+TEST_PARAM  dwDriveTestTimeoutSec                          0000:10:00 // hhhh:mm:ss
+TEST_PARAM  dwDriveTestRawdataDumpTimeoutSec               0000:05:00 // hhhh:mm:ss
+TEST_PARAM  dwDriveAmbientTemperatureTarget                2500       // Not in Use ... Range: 2000 -to- 6500 (20.00C -to- 65.00C)
+TEST_PARAM  dwDriveAmbientTemperaturePositiveRampRate      100        // Not in Use ... Range: 1 -to- 200 (+0.01C/min -to- +2.00C/min)
+TEST_PARAM  dwDriveAmbientTemperatureNegativeRampRate      100        // Not in Use ... Range: 1 -to- 200 (+0.01C/min -to- +2.00C/min)
+TEST_PARAM  dwDrivePowerSupply5V                           5000       // Range: 4500 -to- 5000 (4.5V -to- 5.5V)
+TEST_PARAM  dwDrivePowerSupply12V                          0          // Range: 10800 -to- 13200 (10.8V -to- 13.2V)
+TEST_PARAM  dwDrivePowerRiseTime5V                         0          // Range: 0 -to- 1000 (0msec -to- 1000msec)
+TEST_PARAM  dwDrivePowerRiseTime12V                        0          // Range: 0 -to- 1000 (0msec -to- 1000msec)
+TEST_PARAM  dwDrivePowerIntervalFrom5VTo12V                0          // Range: -1000 -to- 1000 (12VOn->1000msec->5Von -to- 5Von->1000msec->12Von)
+TEST_PARAM  dwDrivePowerOnWaitTime                         70         // Range: > 0 in Sec 
+                                                                      // Power On To Ready Time in Function Spec
+                                                                      //   9.5 sec for Panther-B
+                                                                      //   20.0 sec for Saturn
+                                                                      //   30.0 sec for Gemini-K
+TEST_PARAM  dwDrivePowerOffWaitTime                        10         // Range: > 0 in Sec
+TEST_PARAM  dwDriveUartPullup                              2500       // Range: 1800 -to- 3300 (1.8V -to- 3.3V)
+TEST_PARAM  isNoPlugCheck                                  0
+TEST_PARAM  isNoPowerControl                               0
+TEST_PARAM  isNoPowerOffAfterTest                          0
+TEST_PARAM  isNoDriveFinalized                             0
+TEST_PARAM  isBadHeadReport                                0
+TEST_PARAM  isMultiGrading                                 1          // shall turn off for old product (GMK, PFV, VNF, ...)
+TEST_PARAM  isDriveVoltageDataReport                       1          // report is needed for only mobile product
+TEST_PARAM  isReSrstProhibitControl                        1          
+TEST_PARAM  isTpiSearch                                    1 0x100 4  // [arg1] 0:No, 1:Yes
+                                                                      // [arg2] offset by head (tpi[n] = *(tpi address + head[n] x [arg2])
+                                                                      // [arg3] tpi size (byte)
+TEST_PARAM  isForceDriveTestCompFlagOn                     0          // set test time out flag after identify
+TEST_PARAM  isForceDriveUnload                             0          // set emergency power shutdown flag after identify
+TEST_PARAM  isTesterLogMirrorToStdout                      1
+TEST_PARAM  isTesterLogReportEnable                        7          // report if (Bit0:Pass, Bit1:Fail, Bit2:GODx)
+TEST_PARAM  isFakeErrorCode                                0 0x123456 // overwrite error code with it if the flag set.
+TEST_PARAM  dwTesterLogSizeKByte                           64         // Log Cyclic Buffer Size in KByte (DANGER: Must be < 128)
+
+
+// ---------------------------------------------------------------------------------------------------
+// Keyword  Name                    Address     Address   Size      AccessFlag EndianFlag     ReportFlag
+//          20 Byte Fixed                       Offset    [Byte]    0:Direct   0:8b           0:No Report
+//          Including Space                               Max63KB   1:Indirect 1:16bLE->8b    1:Report before Rawdata Dump
+//                                                                  2:Echo     2:32bLE->8b    2:Report after Rawdata Dump
+//                                                                             3:16bLE->16b   '?':Report after ? Signature Finished
+//                                                                             4:32bLE->32b
+// ---------------------------------------------------------------------------------------------------
+DRIVE_INFO  "SRSTPARAM           "  0x00070200  0         512       0          0              1
+// same as [SRSTSEQUENCE] before rawdata dump?
+
+DRIVE_INFO  "TPI_INFORMATION     "  0x00070600  0x91      0x400     0          0              1
+// report it when rawdata available (address + offset x head#)
+// Byte  Contents
+// ------------------------
+// 0     HD0 TPI
+// 1     HD1 TPI
+// 2     HD2 TPI
+// 3     HD3 TPI
+// 4     HD4 TPI
+// 5     HD5 TPI
+DRIVE_INFO  "GEOPARAMETER        "  0x00070400  0         1536      0          0              1
+DRIVE_INFO  "CMDTRACE            "  0x00080000  0         3072      0          0              1
+DRIVE_INFO  "SRSTALLSTATUS       "  0x00070200  0         512       0          0              2
+// same as [SRSTSEQUENCE] after rawdata dump?
+
+
+DRIVE_INFO  "SRSTSEQUENCE        "  0x00070200  0         512       0          0              0
+DRIVE_INFO  "SERIALNUMBER        "  0x00070378  12        8         1          1              0
+DRIVE_INFO  "MFGID               "  0x00070378  6         6         1          1              0
+//DRIVE_INFO  "MicroRevisionLevel  "  0x00000000  0         8         0          0              0
+DRIVE_INFO  "ServoSectorNumber   "  0x00070409  0         2         0          0              0
+DRIVE_INFO  "HeadNumber          "  0x000700AE  0         1         0          0              0
+//DRIVE_INFO  "HEADTABLE           "  0x00000118  0         10        0          0              1
+//DRIVE_INFO  "TPI_INFORMATION     "  0x00000122  0         20        0          1              1
+//DRIVE_INFO  "SpindleRpm          "  0x0007026A  0         2         0          3              0
+DRIVE_INFO  "MFGID_ON_LABEL      "  0x00070424  0         6         1          0              0
+DRIVE_INFO  "TEMPERATURE         "  0x00070344  0         1         1          0              0
+DRIVE_INFO  "STEP_COUNT          "  0x0007020F  0         1         0          0              0
+DRIVE_INFO  "STATUS_AND_CONTROL  "  0x0007000B  0         1         0          0              0
+DRIVE_INFO  "IMMEDIATE_FLAG      "  0x00070263  0         1         0          0              0
+DRIVE_INFO  "LASTPAGE            "  0x00070224  0         2         0          3              0
+DRIVE_INFO  "LASTPOINTER         "  0x00070222  0         2         0          3              0
+DRIVE_INFO  "NUMOFSETUPPAGE      "  0x000700CC  0         2         0          3              0
+DRIVE_INFO  "SRSTRESULT          "  0x00070A00  0         0         0          0              0
+DRIVE_INFO  "PESTOTALPAGE        "  0x0007026C  0         2         0          3              0
+DRIVE_INFO  "PESCYLINDER         "  0x00070212  0         4         0          4              0
+DRIVE_INFO  "PESHEAD             "  0x000700B4  0         1         0          0              0
+DRIVE_INFO  "PESTEMPERATURE      "  0x00070164  0         1         0          0              0
+DRIVE_INFO  "PESDATACOUNT        "  0x00070268  0         2         0          3              0
+DRIVE_INFO  "SpindleRpm          "  0x0007026A  0         2         0          3              0  => replased with "SpindleRpm"
+DRIVE_INFO  "PESSERVOSECTOR      "  0x00070294  0         2         0          3              0
+DRIVE_INFO  "PESDATAUART         "  0x00070C00  0         0         0          0              0
+DRIVE_INFO  "MCSRESULT           "  0x00070A00  0         0         0          0              0
+DRIVE_INFO  "ERRORCODE           "  0x00070208  0         2         0          3              0
+//DRIVE_INFO  "badHead:            "  0x00070248  0         2         0          3              0
+//DRIVE_INFO  "SRVM_DUMP           "  0x000700B8  0         0x9A8     1          0              1
+//DRIVE_INFO  "HeadParametricData  "  0x00071200  0         512       0          0              2
+//DRIVE_INFO  "PRE_SAT_RESULT      "  0x00071400  0         512       0          0              2
+DRIVE_INFO  "SRSTSIGNATURE       "  0x00070400  0         1024      0          0              0
+//DRIVE_INFO  "ALTTRKTBL           "  0x00070088  -0xC      2048      1          0              'd'
+//DRIVE_INFO  "ZONEPARAMETER       "  0x00070090  -0x1868   0x5600    1          0              1
+
+//DRIVE_INFO  "VOLTCHENGEREQUEST   "  0x00070264
+//DRIVE_INFO  "SRSTTIMECRITERIA    "  0x00070810
+//DRIVE_INFO  "TOTALSRSTTIME       "  0x00070258
+//DRIVE_INFO  "CHANNELPARAMETER    "  0x00070084
+DRIVE_INFO  "RESRSTPROHIBIT      "  0x0007028E  0         2         0          3              0
+
+
+// Each product Offset adress
+// 
+//                         BRK           FLB,FLC,BRB,DPC   PTB
+// ---------------------------------------------------------------------
+// ADR_SRSTTOP             0x75C00       0x75C00           0x70000
+// OFFSET_TEMP             0x00C4        0x00C4            0x0344
+// OFFSET_SN               0x00E0        0x00E0            0x0378
+// OFFSET_HEAD             0x012C        0x012C            0x00B4
+// OFFSET_HEADNUMBER       0x012C        0x012C            0x00B4
+// OFFSET_BURSTPAGE        0x0144        0x0144            0x00CC
+// OFFSET_PESTEMP          0x01E2        0x01E2            0x0164
+// OFFSET_GEOPARA          0x0800        0x0800            0x0400
+// OFFSET_NUM_SVSEC        0x0A09        0x0809            0x0409
+// OFFSET_RAWDATA          0x1000        0x0E00            0x0A00
+// OFFSET_PES              0x1200        0x1000            0x00C0
+// SRSTGEOPARASIZE         (0x200 * 4)   (0x200 * 3)       (0x200 * 3)
+// 
+// Constant Offset and using upper offset value by product (in comUart.c)
+// 
+// addressSRSTTop             = ADR_SRSTTOP;  
+// addressTemp                = addressSRSTTop + OFFSET_TEMP;
+// addressSN                  = addressSRSTTop + OFFSET_SN;
+// addressHead                = addressSRSTTop + OFFSET_HEAD;
+// addressBurstPage           = addressSRSTTop + OFFSET_BURSTPAGE;
+// addressPESTemp             = addressSRSTTop + OFFSET_PESTEMP;
+// addressNumberOfServoSector = addressSRSTTop + OFFSET_NUM_SVSEC;    
+// addressRawData             = addressSRSTTop + OFFSET_RAWDATA;
+// addressPES                 = addressSRSTTop + OFFSET_PES;
+// addressHeadNumber          = addressSRSTTop + OFFSET_HEADNUMBER;
+// addressGEOPARA             = addressSRSTTop + OFFSET_GEOPARA;
+// addressSrstTimeCriteria    = addressSRSTTop + 0x0810;
+//                            
+// addressHeadTable           = 0x0;
+// addressStatCtrl            = addressSRSTTop + 0x000B;
+// addressSRSTStat            = addressSRSTTop + 0x0200;
+// addressEC                  = addressSRSTTop + 0x0208;
+// addressStep                = addressSRSTTop + 0x020F;
+// addressCylinder            = addressSRSTTop + 0x0212;
+// addressPage                = addressSRSTTop + 0x0224;
+// addressUARTFlag            = addressSRSTTop + 0x0262;
+// addressImmediateFlag       = addressSRSTTop + 0x0263;
+// addressVoltageChangeRequest = addressSRSTTop + 0x0264;  /* [LV_NV_HV] */
+// addressPESDataCount        = addressSRSTTop + 0x0268;
+// addressSpindleSpeed        = addressSRSTTop + 0x026A;
+// addressPESPage             = addressSRSTTop + 0x026C;
+// addressTotalSrstTime       = addressSRSTTop + 0x0258;
+// 
+// addressSRSTSequence        = addressSRSTTop + 0x0200;
+// addressSRSTSignature       = addressSRSTTop + 0x0400;
+// addressBaudRate            = 0x0003BC30;
+// addressChannelParameter    = addressSRSTTop + 0x0084;
+// addressAltcylTable         = 0x0;                    
+// addressReSrstProhibit      = addressSRSTTop + 0x028E;
+// addressRawdataMaxPage      = addressSRSTTop + 0x0224;
+// addressRawdataCurrentPage  = addressSRSTTop + 0x016C;
+// addressCmdTrace = 0x80000; /*[CMD_TRACE]*/  
+
+

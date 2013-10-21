@@ -1,0 +1,6 @@
+{
+   sup_0001
+   Memcheck:Param
+   write(buf)
+   fun:write
+}

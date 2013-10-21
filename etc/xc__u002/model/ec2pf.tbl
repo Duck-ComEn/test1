@@ -1,0 +1,160 @@
+#<0002> 20030701 initial version for VNC/VNV/VNR/MR? #
+#<0003> 20030715 continuous alt cyl @SAT
+#<0004> 20030925 ATI write fail
+#<0005> 20030930 head degradation check for  PFD
+#<0006> 20031128 support 6505/88A0  for PFD
+#<0007> 20040122 PFD final item#<0006> 20040115 other extEC support
+#<0007> 20040126 Modify table structure
+#<0008> 20040209 Support VN12,VN18,VN13,VN14,VN19
+#<0009> 20040308 STOP VNR remodel for VNR2,4,8,VN12,4,8
+#<0010> 20050117 Support Multi SER Measurement for PFD
+#<0011> 20050901 Support OW error code for PFV
+#<0012> 20100610 993x for Automation Tester
+#
+??????:0xfffff:0xF9933:9933: Testcase/TestScript Fatal Error
+??????:0xfffff:0xF9934:9934: Testcase/TestScript Abort by User
+??????:0xfffff:0xF9930:9930: Testcase/TestScript Drive Unplugged
+??????:0xfffff:0xF9931:9931: Testcase/TestScript Power Error
+??????:0xfffff:0xF9932:9932: Testcase/TestScript Temperature Error
+#
+??????:0xfffff:0x00000:0000: PASS         <0007>
+??????:0xf0000:0x70000:GOD7: 2nd time SRST
+??????:0xfffff:0x60003:6015: no drive detected
+??????:0xfffff:0x60004:6014: POWER card fail
+??????:0xf0000:0x60000:GOD6: cannot finalize rawdata reporting mode
+??????:0xf0000:0x50000:GOD5: cannot get S/N
+??????:0xf0000:0x30000:GOD3: unit reason
+??????:0xfffff:0x20004:6116: GOD3 rescue
+??????:0xfffff:0x80002:5910: 6110 for desktop (final)
+??????:0xfffff:0x20002:6110: 6110 for desktop
+??????:0xfffff:0x88888:6090: 6090 un-intentional reject or Drive insert sensor error
+??????:0xfffff:0x20003:6010:
+??????:0xfffff:0x10001:GOD2: cannot communicate with drive
+??????:0xfffff:0x15001:GODL: remodeling for VNC
+??????:0xfffff:0x15002:GODL: remodeling for VNC
+??????:0xfffff:0x0EEED:GODL: remodeling for GMK
+??????:0xfffff:0x0EEEC:6EE9: remodeling for GMK(w/ E2PROM Set)
+??????:0xfffff:0x40000:6110: test time is not enough
+??????:0xfffff:0x40001:6114: room temp test time is not enough
+??????:0xfffff:0x40002:6100: too bad or over criteria
+??????:0xfffff:0x40003:6104: too bad or over criteria
+??????:0xf0000:0xf0000:GOD8: other <0006>
+??????:0xf0000:0xe0000:GOD8: other <0006>
+??????:0xf0000:0xd0000:GOD8: other <0006>
+??????:0xf0000:0xc0000:GOD8: other <0006>
+??????:0xf0000:0xb0000:GOD8: other <0006>
+??????:0xf0000:0xa0000:GOD8: other <0006>
+??????:0xf0000:0x90000:GOD8: other <0006>
+??????:0xf0000:0x80000:GOD8: other <0006>
+??????:0xf0000:0x40000:GOD8: other <0007>
+??????:0xf0000:0x20000:GOD8: other <0006>
+??????:0xf0000:0x10000:GOD8: other <0006>
+??????:0x0ffff:0x00030:6100:
+??????:0x0ffff:0x00031:6115:
+??????:0x0ffff:0x00032:6114:
+??????:0x0ffff:0x00033:6117:
+#??????:0x0ffff:0x00031:6110:
+#??????:0x0ffff:0x00032:5910:    Temperature out of criteria NT Limitation
+??????:0x0ffff:0x00040:8300:    VTT format check fail<0007>
+??????:0x0ffff:0x00041:8300:    VTT format check fail<0007>
+??????:0x0ffff:0x00101:6400:    Alt Cyl TBL o/f
+??????:0x0ffff:0x00102:6400:    PES dump count mismatch
+??????:0x0ffff:0x00103:6404:    Alttrack over flow at alttrack complement
+??????:0x0ffff:0x00111:6440:    All cyl count/head out of criteria
+??????:0x0ffff:0x00202:6200:    Log Full
+??????:0x0ffff:0x00114:6210:    Complement log over flow
+??????:0x0ffff:0x00115:6220:    Complement read over flow
+??????:0x0ffff:0x00206:6300:    PDM Full
+??????:0x0ffff:0x00212:6220:    SAT log over flow for defect complement
+??????:0x0ffff:0x00400:6310:    long scrach check fail
+??????:0x0ffff:0x00401:6314:    Deep/short scrach check fail
+??????:0x0ffff:0x00510:6850:    Load unLoad fail
+??????:0x0ffff:0x03000:8806:    any error at final W/R
+??????:0x0ffff:0x03002:6901:    any error at final W/R
+??????:0x0ffff:0x03003:8806:    any error at final W/R
+??????:0x0ffff:0x03001:8912:    Pack read time out
+??????:0x0ffff:0x03005:8895:    Write Error @ POST Final
+??????:0x0ffff:0x03006:8896:    Read Error @ POST Final
+??????:0x0ffff:0x03012:8921:    Write ERP sum over criteria(AV scan)
+??????:0x0ffff:0x03013:8922:    Read ERP sum over criteria(AV scan)
+??????:0x0ffff:0x03100:8900:    out of criteria : Throughput
+??????:0x0ffff:0x03101:890F:    command fail @ throughput measurement
+??????:0x0ffff:0x03124:8902:    throghput out of criteria Read
+??????:0x0ffff:0x03134:8901:    throghput out of criteria Write
+??????:0x0ffff:0x03200:8550:    command fail @ adaptive skew
+??????:0x0ffff:0x03201:8550:    no margin of adaptive skew
+??????:0x0ffff:0x03400:7610:    Torsion Screening
+??????:0x0ffff:0x03401:7610:    Torsion Screening
+??????:0x0ffff:0x03403:7614:    Torsion Screening
+??????:0x0ffff:0x05000:6505:    WWS test cyl search fail
+??????:0x0ffff:0x05001:6500:    WWS check fail (head squeeze)
+??????:0x0ffff:0x05002:6550:    Adjacent Track Interferance
+??????:0x0ffff:0x05003:6551:    ATI write fail <0005>
+??????:0x0ffff:0x05005:6551:    ATI write fail <0005>
+??????:0x0ffff:0x05013:6555:    ATI read check fail
+VNC???:0x0ffff:0x05015:6120:    except VNC
+??????:0x0ffff:0x05015:6501:    Adjacent Track Interferance
+??????:0x0ffff:0x05016:6561:    SER Measurement Write fail
+??????:0x0ffff:0x05021:6506:    WWS
+??????:0x0ffff:0x05101:7500:    WWS SER fail
+??????:0x0ffff:0x05550:6444:    Alt cyl immediate fail by head at fill data
+??????:0x0ffff:0x05555:6410:    40 Continuous Alt cylinder
+VNC???:0x0ffff:0x05557:6120:    except VNC
+??????:0x0ffff:0x05557:6430:    Alternate cylinder density check fail [fill data]
+??????:0x0ffff:0x05558:6414:    continuous alt cyl @ SAT
+??????:0x0ffff:0x06100:5360:    POR BEEP fail
+??????:0xfffff:0x06200:6A00:    PFD channel screening
+??????:0x0ffff:0x07100:6750:    Seek Settling Seek fail
+??????:0x0ffff:0x07104:6750:    Seek Settling Seek fail(Slow Seek)
+??????:0x0ffff:0x08000:6600:    Compare Error - Double Servo Screen
+??????:0x0ffff:0x08001:6610:    Unrecovered error - Double Servo Screen
+??????:0x0ffff:0x08002:6600:    Seek Error
+??????:0x0ffff:0x08003:6610:    Unrec Seek error in Double Servo Screen
+??????:0x0ffff:0x08004:6600:    Cannot find Trk 0 - Double Servo Screen
+??????:0x0ffff:0x08100:8504:    FullStroke out of criteria
+??????:0x0ffff:0x08110:8504:    RandomStroke out of criteria
+??????:0x0ffff:0x08200:8504:    FullStroke out of criteria quiet
+??????:0x0ffff:0x08210:8504:    RandomStroke out of criteria quiet
+??????:0x0ffff:0x0AAAA:8503:    Seek Time measurement seek command fail
+??????:0x0ffff:0x09100:8710:    OW out of criteria
+??????:0x0ff00:0x09100:871F:    OW command fail
+??????:0x0ffff:0x0B080:7500:    WWS SER
+??????:0x0f800:0x0B800:8765:    SER Delta(vb changed) <0010>
+#??????:0x0f800:0x0B800:8750:    poor SER (vb changed) <0005>
+??????:0x0f400:0x0B400:8750:    Poor SER (vb changed) <0010>
+??????:0x0f040:0x0B040:8760:    fun-fin SER delta over criteria <0010>
+??????:0x0f200:0x0B200:8704:    fun-fin Head amp delta over criteria <0005>
+??????:0x0f100:0x0B100:8744:    fun-fin Asymmetry delta over criteria <0005>
+??????:0x0ffff:0x0C000:88A0:    SMART status check fail
+??????:0x0ffff:0x0D010:7020:    #DON'T CHANGE ORDER1# CMD2:SAT read
+??????:0x0ffff:0x0D020:7015:    #DON'T CHANGE ORDER2# CMD4:R/W Read
+??????:0x0ffff:0x0D080:7017:    #DON'T CHANGE ORDER3# CMD3:W/W Write
+??????:0x0ffff:0x0D040:7420:    #DON'T CHANGE ORDER4# CMD10:SAT Alycyl
+#??????:0x0ffff:0x0D800:8720:    #DON'T CHANGE ORDER5# SER delta
+??????:0x0ffff:0x0D800:7005:    SER Delta (Multi SER at SRST) <0010>
+??????:0x0ffff:0x0D400:7004:    Poor SER (Multi SER at SRST) <0010>
+??????:0x0ffff:0x0D001:8307:    #DON'T CHANGE ORDER6# PDM
+??????:0x0ffff:0x0D002:7430:    #DON'T CHANGE ORDER7# Aly cyl
+??????:0x0ffff:0x0E000:8A40:    DRAM(Pattern generater) fail
+??????:0x0ffff:0x0E100:8A50:    DRAM(Dummy Read) fail
+??????:0x0ffff:0x0E110:8A50:    DRAM(Dummy Read) fail
+??????:0x0ffff:0x0ff28:6350:    only for Moblie
+??????:0x0ff00:0x00000:6130:    other error 1
+??????:0x00000:0x00000:6120:    any other error
+
+#VNR2??:0x0ffff:0x05001:GODL:    WWS check fail (head squeeze)
+#VNR4??:0x0ffff:0x05001:GODL:    WWS check fail (head squeeze)
+#VNR6??:0x0ffff:0x05001:GODL:    WWS check fail (head squeeze)
+#VNR8??:0x0ffff:0x05001:GODL:    WWS check fail (head squeeze)
+#VNR9??:0x0ffff:0x05001:GODL:    WWS check fail (head squeeze)
+#VN12??:0x0ffff:0x05001:GODL:    WWS check fail (head squeeze)
+#VN14??:0x0ffff:0x05001:GODL:    WWS check fail (head squeeze)
+#VN18??:0x0ffff:0x05001:GODL:    WWS check fail (head squeeze)
+#VN16??:0x0ffff:0x05001:GODL:    WWS check fail (head squeeze)
+#VN19??:0x0ffff:0x05001:GODL:    WWS check fail (head squeeze)
+
+
+
+
+
+

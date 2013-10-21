@@ -1,0 +1,7 @@
+## --- (This file is for HGST-build) ---
+INCLUDE1  = ../slotio
+//LIBS    = ../slotio/neptune_sio2.a ../slotio/librpclib.a 
+LIBS = /usr/teradyne/neptune/lib/libTeradyneSio.so
+LIBSDIR = -L/usr/teradyne/neptune/lib
+INCLUDES = -I/usr/teradyne/neptune/include
+LIBPATH = .

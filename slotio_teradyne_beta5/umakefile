@@ -1,0 +1,77 @@
+#
+# Build wrapper
+#
+
+.SUFFIXES:
+.SUFFIXES: .c .cpp .h .o .a .lr .i .d .l
+
+.phony: all clean depend strip tag release
+
+FLEXFLAGS=
+
+
+CFLAGS = -O -Wall -Werror -gstabs+ -DNEPTUNE_CLIENT_BUILD
+LDFLAGS= -O -gstabs+
+
+
+LIBS =
+
+CROSS_COMPILE=
+
+CFILES =
+
+OBJS =
+
+CC=$(CROSS_COMPILE)gcc
+CPP=$(CROSS_COMPILE)g++
+AR=$(CROSS_COMPILE)ar
+STRIP=$(CROSS_COMPILE)strip
+FLEX=flex
+
+.c.o:
+	$(CC) -c $(CFLAGS) $*.c
+
+all: libsi.a wapitest updatediofw
+
+# Prepare a release
+preprel:
+	@echo "#define BUILD_DATE \"`date`\"" > build_date.inc
+	@echo "#define NEPTUNE_SIO2_LIB_VER " >> build_date.inc
+	@echo "#define SIO2_SUPER_APP_VER " >> build_date.inc
+	@echo "*****  Manually edit ver.h and build_date.inc. Use info from CommonAssembly.h  *****"
+
+
+neptune_hitachi_interface.o: neptune_hitachi_interface.cpp
+	$(CPP)  $(CFLAGS) -c neptune_hitachi_interface.cpp
+
+neptune_hitachi_comm.o: neptune_hitachi_comm.c
+	$(CC) -I. -O -c neptune_hitachi_comm.c
+
+hitachi_sio2.o: hitachi_sio2.cpp
+	$(CPP)  $(CFLAGS) -c hitachi_sio2.cpp
+	
+updatediofw.o: updatediofw.cpp
+	$(CPP)  $(CFLAGS) -c updatediofw.cpp
+
+libsi.a: neptune_hitachi_interface.o neptune_hitachi_comm.o
+	${AR} cr libsi.a  neptune_hitachi_comm.o neptune_hitachi_interface.o neptune_sio2.a librpclib.a
+	
+wapitest: hitachi_sio2.o
+	$(CPP)  $(LDFLAGS) -o wapitest hitachi_sio2.o libsi.a neptune_sio2.a librpclib.a
+#	$(CPP)  $(LDFLAGS) -o wapitest hitachi_sio2.o libsi.a neptune_sio2.a librpclib.a
+
+updatediofw: updatediofw.o
+	$(CPP)  $(CFLAGS) -o updatediofw updatediofw.o libsi.a neptune_sio2.a librpclib.a -lpthread 
+
+clean:
+	rm -f *.o *~* *.d wapitest updatediofw libsi.a
+
+depend: 
+	$(CC) $(CFLAGS) -E -MM $(CFILES) >.depend
+
+
+
+ifeq (.depend,$(wildcard .depend))
+include .depend
+endif
+

@@ -1,0 +1,9 @@
+make -f makefile clean
+cd ../neptune_sio2-1.0
+make
+cd ../wrapper-api
+cp ../neptune_sio2-1.0/neptune_sio2.a .
+cp ../neptune_sio2-1.0/rpc/rpc/librpclib.a .
+cp ../neptune_sio2-1.0/neptune_sio2_rpc.h .
+cp ../neptune_sio2-1.0/neptune_sio2.h .
+make -f makefile 

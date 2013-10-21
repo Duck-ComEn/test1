@@ -1,0 +1,22 @@
+#!/bin/bash
+
+if [ "$1" == "aboy" ]
+then
+   ssh -X testpc@131.101.36.13;
+elif [ "$1" == "testpc" ]
+then
+   ssh -X testpc@192.168.100.62;
+elif [ "$1" == "cpto" ]
+then
+   scp $2 testpc@131.101.36.13:/tmp/;
+elif [ "$1" == "cpfrom" ]
+then
+   ssh -X testpc@192.168.100.62;
+else
+   echo "[aboy|cpto|cpfrom]"
+fi
+
+
+
+
+

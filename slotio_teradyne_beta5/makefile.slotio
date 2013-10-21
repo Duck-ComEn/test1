@@ -1,0 +1,4 @@
+## --- (This file is for HGST-build) ---
+INCLUDE1  = ../slotio
+LIBS    = ../slotio/neptune_sio2.a ../slotio/librpclib.a 
+LIBPATH = .
