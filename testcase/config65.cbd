@@ -1,0 +1,36 @@
+//bCellNo:65
+//wCellIndex:10
+//wTrayIndex:1
+// --------------------------------------------------------------------------------------
+// Keyword  Name                                           Value
+// --------------------------------------------------------------------------------------
+TEST_PARAM  isTestMode                                     8   1000   512  0  // [arg1]  0: normal test script
+                                                                             //         1: HOST_COM_NEAR_LOOPBACK_TEST
+                                                                             //         2: HOST_COM_FAR_LOOPBACK_TEST
+                                                                             //         3: HOST_COM_DOWNLOAD_TEST
+                                                                             //         4: HOST_COM_UPLOAD_TEST
+                                                                             //         5: DRIVE_COM_READ_TEST
+                                                                             // [arg2]  num of data
+                                                                             // [arg3]  data size in byte
+                                                                             // [arg4]  momory address
+TEST_PARAM  bTestResultFileName                            "/result/00000001.000"             // 100 bytes max
+TEST_PARAM  bTestPfTableFileName                           "c:/!lts/!system/!etc/ec2pf.tbl"   // 100 bytes max
+TEST_PARAM  bTestMfgId                                     "E?????"                           // 6 bytes. '?' is wild card
+TEST_PARAM  bTestLabelMfgIdOffset                          0                                  // 0-7 bytes.  MDGID control 4byte->6byte
+TEST_PARAM  bTestSerialNumber                              "????????"                         // 8 bytes. '?' is wild card
+TEST_PARAM  bTestDefaultBadHeadTable                       0x9 0x8 0x7 0x6 0x5 0x4 0x3 0x2 0x1 0x0
+                                                           // GMK 10HD 0x9 0x8 0x7 0x6 0x5 0x4 0x3 0x2 0x1 0x0
+                                                           // GMK  8HD 0x7 0x6 0x5 0x4 0x3 0x2 0x1 0x0 0xf 0xf
+                                                           // GMK  6HD 0x7 0x6 0x5 0x4 0x3 0x2 0xf 0xf 0xf 0xf
+TEST_PARAM  bTestUartProtocol                              1
+TEST_PARAM  dwDriveTestElapsedTimeSec                      0000:00:00 // hhhh:mm:ss
+TEST_PARAM  dwDriveTestTimeoutSec                          0180:40:00 // hhhh:mm:ss
+TEST_PARAM  dwDriveTestRawdataDumpTimeoutSec               0001:30:00 // hhhh:mm:ss
+TEST_PARAM  dwDriveTestStatusPollingIntervalTimeSec        0000:01:00 // hhhh:mm:ss
+
+
+
+TEST_PARAM  dwDrivePowerSupply5V                           5000       // Range: 4500 -to- 5000 (4.5V -to- 5.5V)
+TEST_PARAM  dwDrivePowerSupply12V                          0      // Range: 10800 -to- 13200 (10.8V -to- 13.2V)
+TEST_PARAM  dwDrivePowerOnWaitTime                         90         // Range: > 0 in Sec (e.g. 20 sec for 3D model, 30sec for 5D model, refer drive function spec)
+TEST_PARAM  dwDrivePowerOffWaitTime                        10         // Range: > 0 in Sec (e.g. 20 sec for 2D model, 30sec for 5D model, refer drive function spec)

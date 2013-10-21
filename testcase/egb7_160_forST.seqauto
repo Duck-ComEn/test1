@@ -1,0 +1,30 @@
+elapsed(0000,00,00);
+sequence(0x98);
+ saveInterval(0);
+ restart(0,0,0);
+ setVolt(0,500);
+ setTemp(25,1); holdMin(1);
+
+ restart(0,0,0);
+ setTemp(58,1); holdMin(114);
+ save(7);
+  restart(4,1,0);
+  setVolt(0,500); holdMin(60);
+ loop();
+ setVolt(0,500); holdMin(40);
+ command(#PORTPREPDATA);holdMin(40);
+
+ label(#A);
+ command(#PORTLABELA);
+ restart(0,0,0);
+ setTemp(25,1); holdMin(1);
+
+ restart(0,0,0);
+ setTemp(25,1);
+ setVolt(0,0); holdMin(5);
+ command(#PORTFINALSTART);
+ setVolt(0,500); holdMin(160);
+ command(#PORTPREPDATA);holdMin(40);
+ setVolt(0,0);
+ holdMin(1);
+endSequence();

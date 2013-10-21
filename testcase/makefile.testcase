@@ -1,0 +1,29 @@
+##-------------------
+include ../slotio/makefile.slotio
+#
+#
+##-------------------
+ifeq ($(OS),Windows_NT)
+#
+CFLAGS_DEFAULT = -Werror -Wall -Wshadow -Wredundant-decls -g -D_REENTRANT -DLINUX -DUNIT_TEST
+CPPFLAGS_DEFAULT = -Werror -Wall -Wshadow -Wredundant-decls -g -D_REENTRANT -DLINUX -DUNIT_TEST -I$(INCLUDE1) $(LIBS) -L$(LIBPATH)
+#
+else
+#
+GCC4_WORKAROUND = -Wno-pointer-sign
+#UNIT_TEST = -DUNIT_TEST
+CFLAGS_DEFAULT = -Werror -Wall -Wshadow -Wredundant-decls -g -D_REENTRANT -DLINUX $(GCC4_WORKAROUND) $(UNIT_TEST)
+CPPFLAGS_DEFAULT = -Werror -Wall -Wshadow -Wredundant-decls -g -D_REENTRANT -DLINUX -fPIC -I$(INCLUDE1) $(LIBS) -L$(LIBPATH) $(UNIT_TEST)
+#
+endif
+#
+#
+##-------------------
+LIB_TC = ../testcase/libtc.a
+LIB_HI = ../hostio/libhi.a
+LIB_SI = ../slotio/libsi.a
+LIB_TS = ../testscript/libts.a
+LIB_SH = ../signalhandler/libsh.a
+LIB_CS = ../chamberscript/libcs.a
+LIB_SM = ../syncmanager/libsm.a
+LIB_VC = ../versioncontrol/libvc.a

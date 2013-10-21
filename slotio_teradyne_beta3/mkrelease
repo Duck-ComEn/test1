@@ -1,0 +1,17 @@
+#!/bin/bash
+
+ReleaseDir=/mnt/hgfs/buildshare/release
+currentDir=/home/garalapm/hitachi-1.0/wrapper-api
+
+/bin/rm  $ReleaseDir/wrapper-api/*
+/bin/cp -f *  $ReleaseDir/wrapper-api/
+rm $ReleaseDir/wrapper-api/*.o
+rm $ReleaseDir/wrapper-api/*.d
+rm $ReleaseDir/wrapper-api/c.sh  $ReleaseDir/wrapper-api/c.shrelease.sh  $ReleaseDir/wrapper-api/c.shtemp.sh
+cp Release-notes.txt $ReleaseDir
+cd $ReleaseDir
+cd ../
+tar cvzf slotio20110311_build_1166.tqz release/
+cd $currentDir
+
+

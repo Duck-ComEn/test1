@@ -1,0 +1,6 @@
+sequence(0x98);
+  setTemp(59,1);
+  save(16);
+    holdMin(60);
+ loop();
+endSequence();

@@ -1,0 +1,3 @@
+#define BUILD_DATE "Fri May 13 15:20:41 EDT 2011"
+#define NEPTUNE_SIO2_LIB_VER 
+#define SIO2_SUPER_APP_VER 

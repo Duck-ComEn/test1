@@ -1,0 +1,29 @@
+#***********************************************************************************************************************
+# Rev  |  Date  | modified by     | comment
+#***********************************************************************************************************************
+# 0001 | 100204 | S.Takahashi     | Mobile/Desktop Common Table for Check Program
+#***********************************************************************************************************************
+
+# Abort
+??????:0xfffff:0xF9933:989E: Testcase/TestScript Fatal Error
+??????:0xfffff:0xF9934:989F: Testcase/TestScript Abort by User
+??????:0xfffff:0xF9930:989B: Testcase/TestScript Drive Unplugged
+??????:0xfffff:0xF9931:989C: Testcase/TestScript Power Error
+??????:0xfffff:0xF9932:989D: Testcase/TestScript Temperature Error
+
+# GODx
+??????:0xf0000:0x90000:GOD9: TestScript GODx
+??????:0xf0000:0x80000:GOD8: TestScript GODx
+??????:0xf0000:0x70000:GOD7: TestScript GODx
+??????:0xf0000:0x60000:GOD6: TestScript GODx
+??????:0xf0000:0x50000:GOD5: TestScript GODx
+??????:0xf0000:0x40000:GOD4: TestScript GODx
+??????:0xf0000:0x30000:GOD3: TestScript GODx
+??????:0xf0000:0x20000:GOD2: TestScript GODx
+??????:0xf0000:0x10000:GOD1: TestScript GODx
+
+# Pass
+??????:0xfffff:0x00000:0000: Pass
+
+# Gate for Unknown Code
+??????:0x00000:0x00000:989J: Testcase/TestScript Others

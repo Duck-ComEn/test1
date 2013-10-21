@@ -1,0 +1,4 @@
+##-------------------
+INCLUDE1  = /usr/optimus/dev/include
+LIBS    = -lCellEnvHGSTOptimus_20-2.6.18-164.el5 -lCellRIMHGSTSerialOptimus_1-2.6.18-164.el5
+LIBPATH = /usr/optimus/run/lib

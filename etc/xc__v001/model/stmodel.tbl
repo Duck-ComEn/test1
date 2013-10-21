@@ -1,0 +1,20 @@
+#=============================================================
+#
+#  MODEL TABLE FOR OPTIMUS CHECK PROGRAM
+#
+#          HGST FUJISAWA
+#          Test Engineering
+#
+#=============================================================
+
+# ------------------------------------------------------------
+# Jupiter / Jupiter-U
+# ------------------------------------------------------------
+AutoConfigFile6600.JP????:c:\!lts\!system\!st\config.chkvol
+.JP????:c:\!lts\!system\!st\chamber.chknop
+
+# ------------------------------------------------------------
+# Jupiter-C
+# ------------------------------------------------------------
+AutoConfigFile6600.JC????:c:\!lts\!system\!st\config.chkvol
+.JC????:c:\!lts\!system\!st\chamber.chknop

@@ -1,0 +1,217 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.6	//
+DRIVE_INFO	hitachi_sio2.cpp	/^DRIVE_INFO;$/;"	t	typeref:struct:drive_info_t	file:
+Data	hitachi_sio2.cpp	/^static Byte Data[WAPI_BUFFER_SIZE];$/;"	v	file:
+Data1	hitachi_sio2.cpp	/^static Byte Data1[WAPI_BUFFER_SIZE];$/;"	v	file:
+ISCMD	hitachi_sio2.cpp	58;"	d	file:
+MAX_LINE_LENGTH	neptune_hitachi_interface.cpp	3992;"	d	file:
+UART_PULLUP_VOLTAGE_DEFAULT	neptune_hitachi_interface.cpp	170;"	d	file:
+WAPI_64K_MAX_PENDING_PER_FPGA_DEFAULT	neptune_hitachi_interface.cpp	188;"	d	file:
+WAPI_ACK_TIMEOUT_MASK	neptune_hitachi_interface.cpp	186;"	d	file:
+WAPI_BUFFER_SIZE	hitachi_sio2.cpp	61;"	d	file:
+WAPI_CMD_RESP_BUF_SIZE	neptune_hitachi_interface.cpp	184;"	d	file:
+WAPI_DEBUG_TRACE_DISABLE	neptune_hitachi_interface.cpp	171;"	d	file:
+WAPI_DEBUG_TRACE_ENABLE	neptune_hitachi_interface.cpp	172;"	d	file:
+WAPI_DRIVE_TIMEOUT_MS	hitachi_sio2.cpp	63;"	d	file:
+WAPI_DRIVE_TYPE_EB7	hitachi_sio2.cpp	68;"	d	file:
+WAPI_DRIVE_TYPE_EC7	hitachi_sio2.cpp	66;"	d	file:
+WAPI_DRIVE_TYPE_INVALID	hitachi_sio2.cpp	69;"	d	file:
+WAPI_DRIVE_TYPE_PTB	hitachi_sio2.cpp	67;"	d	file:
+WAPI_HITACHI_SPECIAL_ENABLE	neptune_hitachi_interface.cpp	187;"	d	file:
+WAPI_MAX_BYTES_FROM_SMALL_BUFF	neptune_hitachi_interface.cpp	181;"	d	file:
+WAPI_OVER_VOLTAGE_PROT_LIMIT_MV	neptune_hitachi_interface.cpp	179;"	d	file:
+WAPI_PRINT_JOURNAL_ALL	neptune_hitachi_interface.cpp	193;"	d	file:
+WAPI_PRINT_JOURNAL_ON_ERROR	neptune_hitachi_interface.cpp	194;"	d	file:
+WAPI_PROFILE_START	hitachi_sio2.cpp	64;"	d	file:
+WAPI_PROFILE_STOP	hitachi_sio2.cpp	65;"	d	file:
+WAPI_READ_CMD_OVERHEAD_BYTES	neptune_hitachi_interface.cpp	180;"	d	file:
+WAPI_SEND_RECV_BIG_BUF_SIZE	neptune_hitachi_interface.cpp	183;"	d	file:
+WAPI_SEND_RECV_BUF_SIZE	neptune_hitachi_interface.cpp	182;"	d	file:
+WAPI_TCLOGGER_ENABLE	neptune_hitachi_interface.cpp	157;"	d	file:
+WAPI_TEMP_ADJ_OFFSET_MAX	neptune_hitachi_interface.cpp	190;"	d	file:
+WAPI_TEMP_ADJ_TARGET_TEMP_MIN	neptune_hitachi_interface.cpp	189;"	d	file:
+WAPI_TEST01_CONTINUE_READ	hitachi_sio2.cpp	74;"	d	file:
+WAPI_TEST01_ENABLE_64K	hitachi_sio2.cpp	72;"	d	file:
+WAPI_TEST01_EXIT_ON_ERROR	hitachi_sio2.cpp	73;"	d	file:
+WAPI_TEST01_TEST_UART_VER	hitachi_sio2.cpp	75;"	d	file:
+WAPI_TEST09_ECHO_COUNT	hitachi_sio2.cpp	79;"	d	file:
+WAPI_TEST09_HTEMP_ENABLE	hitachi_sio2.cpp	88;"	d	file:
+WAPI_TEST09_IDLE_WAIT_SEC	hitachi_sio2.cpp	86;"	d	file:
+WAPI_TEST09_NEG_RAMP	hitachi_sio2.cpp	83;"	d	file:
+WAPI_TEST09_POS_RAMP	hitachi_sio2.cpp	82;"	d	file:
+WAPI_TEST09_SAFE_TEMP	hitachi_sio2.cpp	84;"	d	file:
+WAPI_TEST09_TARGET_TEMP1	hitachi_sio2.cpp	80;"	d	file:
+WAPI_TEST09_TARGET_TEMP2	hitachi_sio2.cpp	81;"	d	file:
+WAPI_TEST09_TARGET_TEMP_WAIT_SEC	hitachi_sio2.cpp	85;"	d	file:
+WAPI_TEST09_VOLTAGE_CHECK	hitachi_sio2.cpp	87;"	d	file:
+WAPI_TEST98_READ_SIZE	hitachi_sio2.cpp	1241;"	d	file:
+WAPI_TX_HALT_ON_ERROR_MASK	neptune_hitachi_interface.cpp	185;"	d	file:
+WAPI_V12_LIMIT_IN_MILLI_AMPS	neptune_hitachi_interface.cpp	174;"	d	file:
+WAPI_V12_LOWER_LIMIT_MV	neptune_hitachi_interface.cpp	177;"	d	file:
+WAPI_V12_UPPER_LIMIT_MV	neptune_hitachi_interface.cpp	178;"	d	file:
+WAPI_V5_LIMIT_IN_MILLI_AMPS	neptune_hitachi_interface.cpp	173;"	d	file:
+WAPI_V5_LOWER_LIMIT_MV	neptune_hitachi_interface.cpp	175;"	d	file:
+WAPI_V5_UPPER_LIMIT_MV	neptune_hitachi_interface.cpp	176;"	d	file:
+ackTimeout	hitachi_sio2.cpp	/^  	Byte 	ackTimeout;$/;"	m	struct:drive_info_t	file:
+adjhtemp	hitachi_sio2.cpp	/^static void  adjhtemp (int id, FILE *f)$/;"	f	file:
+adjustTemperatureControlByDriveTemperature	neptune_hitachi_interface.cpp	/^Byte adjustTemperatureControlByDriveTemperature(Byte bCellNo, Word wTempInHundredth)$/;"	f
+bWapiTestMode	neptune_hitachi_interface.cpp	/^static Byte bWapiTestMode = 0;$/;"	v	file:
+baudRateIndex	hitachi_sio2.cpp	/^int baudRateIndex = 9;$/;"	v
+baudRates	hitachi_sio2.cpp	/^Dword   baudRates[] = {115200,460800,921600,1843200,2778000,3333000,4167000,5556000,8333000,1843200};$/;"	v
+clearCellEnvironmentError	neptune_hitachi_interface.cpp	/^Byte clearCellEnvironmentError(Byte bCellNo)$/;"	f
+createNeptuneIso2	neptune_hitachi_interface.cpp	/^static void createNeptuneIso2(void)$/;"	f	file:
+destroyNeptuneIso2	neptune_hitachi_interface.cpp	/^void destroyNeptuneIso2(void)$/;"	f
+driveInfo	hitachi_sio2.cpp	/^DRIVE_INFO driveInfo[3] = { {12,     540,     3,     0,      0x08331000, 0x8331063,   1},	   \/* EC7 *\/$/;"	v
+driveType	hitachi_sio2.cpp	/^static int 	driveType;$/;"	v	file:
+drive_info_t	hitachi_sio2.cpp	/^typedef struct drive_info_t $/;"	s	file:
+finishTest	hitachi_sio2.cpp	/^static Byte finishTest(int id, int driveType)$/;"	f	file:
+getActualCurrent	neptune_hitachi_interface.cpp	/^Byte getActualCurrent(Byte bCellNo,Word *wV5InMilliAmps, Word *wV12InMilliAmps)$/;"	f
+getCellInventory	neptune_hitachi_interface.cpp	/^Byte getCellInventory(Byte bCellNo, CELL_CARD_INVENTORY_BLOCK **stCellInventory)$/;"	f
+getCurrentLimit	neptune_hitachi_interface.cpp	/^Byte getCurrentLimit(Byte bCellNo, Word *wV5LimitInMilliAmpere, Word *wV12LimitInMilliAmpere)$/;"	f
+getCurrentTemperature	neptune_hitachi_interface.cpp	/^Byte getCurrentTemperature(Byte bCellNo, Word *wTempInHundredth)$/;"	f
+getCurrentVoltage	neptune_hitachi_interface.cpp	/^Byte getCurrentVoltage(Byte bCellNo,Word *wV5InMilliVolts, Word *wV12InMilliVolts)$/;"	f
+getHeaterOutput	neptune_hitachi_interface.cpp	/^Byte getHeaterOutput(Byte bCellNo, Word *wHeaterOutputInPercent)$/;"	f
+getNegativeTemperatureRampRate	neptune_hitachi_interface.cpp	/^Byte getNegativeTemperatureRampRate(Byte bCellNo, Word *wTempInHundredthPerMinutes)$/;"	f
+getPositiveTemperatureRampRate	neptune_hitachi_interface.cpp	/^Byte getPositiveTemperatureRampRate(Byte bCellNo, Word *wTempInHundredthPerMinutes)$/;"	f
+getReferenceTemperature	neptune_hitachi_interface.cpp	/^Byte getReferenceTemperature(Byte bCellNo, Word *wTempInHundredth)$/;"	f
+getSafeHandlingTemperature	neptune_hitachi_interface.cpp	/^Byte getSafeHandlingTemperature(Byte bCellNo, Word * wTempInHundredth)$/;"	f
+getShutterPosition	neptune_hitachi_interface.cpp	/^Byte getShutterPosition(Byte bCellNo, Word *wShutterPositionInPercent)$/;"	f
+getTargetTemperature	neptune_hitachi_interface.cpp	/^Byte getTargetTemperature(Byte bCellNo, Word *wTempInHundredth)$/;"	f
+getTargetVoltage	neptune_hitachi_interface.cpp	/^Byte getTargetVoltage(Byte bCellNo,Word *wV5InMilliVolts, Word *wV12InMilliVolts)$/;"	f
+getTemperatureEnvelope	neptune_hitachi_interface.cpp	/^Byte getTemperatureEnvelope( Byte bCellNo, Word *wEnvelopeTempInTenth)$/;"	f
+getTemperatureErrorStatus	neptune_hitachi_interface.cpp	/^Byte getTemperatureErrorStatus(Byte bCellNo, Word *wErrorStatus)$/;"	f
+getTemperatureLimit	neptune_hitachi_interface.cpp	/^ Byte getTemperatureLimit(Byte bCellNo, Word *wSetTempLowerInHundredth, Word *wSetTempUpperInHundredth, Word *wSensorTempLowerInHundredth, Word *wSensorTempUpperInHundredth)$/;"	f
+getUartPullupVoltage	neptune_hitachi_interface.cpp	/^Byte getUartPullupVoltage(Byte bCellNo, Word *wUartPullupVoltageInMilliVolts)$/;"	f
+getVoltageErrorStatus	neptune_hitachi_interface.cpp	/^Byte getVoltageErrorStatus(Byte bCellNo, Word *wErrorStatus)$/;"	f
+getVoltageFallTime	neptune_hitachi_interface.cpp	/^Byte getVoltageFallTime(Byte bCellNo, Word *wV5TimeInMsec, Word *wV12TimeInMsec)$/;"	f
+getVoltageInterval	neptune_hitachi_interface.cpp	/^Byte getVoltageInterval(Byte bCellNo, Word *wTimeFromV5ToV12InMsec)$/;"	f
+getVoltageLimit	neptune_hitachi_interface.cpp	/^Byte getVoltageLimit(Byte bCellNo, Word *wV5LowerLimitInMilliVolts, Word *wV12LowerLimitInMilliVolts, Word *wV5UpperLimitInMilliVolts, Word *wV12UpperLimitInMilliVolts)$/;"	f
+getVoltageRiseTime	neptune_hitachi_interface.cpp	/^Byte getVoltageRiseTime(Byte bCellNo, Word *wV5TimeInMsec, Word *wV12TimeInMsec)$/;"	f
+gethtemp	hitachi_sio2.cpp	/^static Byte  gethtemp (int id)$/;"	f	file:
+initDriveParameters	hitachi_sio2.cpp	/^static Byte initDriveParameters(int id, int driveType)$/;"	f	file:
+initTest	hitachi_sio2.cpp	/^static Byte initTest(int id, int driveType)$/;"	f	file:
+interCharDelay	hitachi_sio2.cpp	/^  	Dword 	interCharDelay;$/;"	m	struct:drive_info_t	file:
+isCellEnvironmentError	neptune_hitachi_interface.cpp	/^Byte isCellEnvironmentError(Byte bCellNo)$/;"	f
+isDrivePlugged	neptune_hitachi_interface.cpp	/^Byte isDrivePlugged(Byte bCellNo)$/;"	f
+isOnTemp	neptune_hitachi_interface.cpp	/^Byte isOnTemp(Byte bCellNo)$/;"	f
+isSlotThere	neptune_hitachi_interface.cpp	/^Byte isSlotThere(Byte bCellNo)$/;"	f
+logFileName	neptune_hitachi_interface.cpp	/^static char logFileName[128] = {'\\0'};$/;"	v	file:
+main	hitachi_sio2.cpp	/^int main(int argc, char *argv[])$/;"	f
+mutex_slotio	neptune_hitachi_interface.cpp	/^pthread_mutex_t  mutex_slotio;$/;"	v
+ns2	neptune_hitachi_interface.cpp	/^static class Neptune_sio2 *ns2 = NULL;$/;"	v	typeref:class:Neptune_sio2	file:
+powerupDelay	hitachi_sio2.cpp	/^  	unsigned int  powerupDelay;$/;"	m	struct:drive_info_t	file:
+printBanner	hitachi_sio2.cpp	/^static void printBanner(char *str)$/;"	f	file:
+printBuffer	neptune_hitachi_interface.cpp	/^static void printBuffer(char *txt, Byte *buf, Word len)$/;"	f	file:
+printData	hitachi_sio2.cpp	/^static void printData(char *str, Byte *Data, Word size)$/;"	f	file:
+printJournal	neptune_hitachi_interface.cpp	/^static void printJournal(Byte bCellNo, Word wCount)$/;"	f	file:
+printTemperatureVariables	hitachi_sio2.cpp	/^static void printTemperatureVariables(int id)$/;"	f	file:
+profileTimer	hitachi_sio2.cpp	/^static void  profileTimer (int cmd)$/;"	f	file:
+quiteMode	hitachi_sio2.cpp	/^static int 	quiteMode;$/;"	v	file:
+readAddr	hitachi_sio2.cpp	/^	Dword   readAddr;$/;"	m	struct:drive_info_t	file:
+sanityCheck	neptune_hitachi_interface.cpp	/^static Byte sanityCheck(Byte bCellNo)$/;"	f	file:
+setCurrentLimit	neptune_hitachi_interface.cpp	/^Byte setCurrentLimit(Byte bCellNo, Word wV5LimitInMilliAmpere, Word wV12LimitInMilliAmpere)$/;"	f
+setDriveSlotIndex	neptune_hitachi_interface.cpp	/^void setDriveSlotIndex(int idx)$/;"	f
+setHeaterOutput	neptune_hitachi_interface.cpp	/^Byte setHeaterOutput(Byte bCellNo, Word wHeaterOutputInPercent)$/;"	f
+setNegativeTemperatureRampRate	neptune_hitachi_interface.cpp	/^Byte setNegativeTemperatureRampRate(Byte bCellNo, Word wTempInHundredthPerMinutes)$/;"	f
+setPositiveTemperatureRampRate	neptune_hitachi_interface.cpp	/^Byte setPositiveTemperatureRampRate(Byte bCellNo, Word wTempInHundredthPerMinutes)$/;"	f
+setSafeHandlingTemperature	neptune_hitachi_interface.cpp	/^Byte setSafeHandlingTemperature(Byte bCellNo, Word wTempInHundredth)$/;"	f
+setShutterPosition	neptune_hitachi_interface.cpp	/^Byte setShutterPosition(Byte bCellNo, Word wShutterPositionInPercent)$/;"	f
+setTargetTemperature	neptune_hitachi_interface.cpp	/^Byte setTargetTemperature(Byte bCellNo, Word wTempInHundredth)$/;"	f
+setTargetVoltage	neptune_hitachi_interface.cpp	/^Byte setTargetVoltage(Byte bCellNo, Word wV5InMilliVolts, Word wV12InMilliVolts)$/;"	f
+setTemperatureEnvelope	neptune_hitachi_interface.cpp	/^Byte setTemperatureEnvelope( Byte bCellNo, Word wEnvelopeTempInTenth)$/;"	f
+setTemperatureLimit	neptune_hitachi_interface.cpp	/^ Byte setTemperatureLimit(Byte bCellNo, Word wSetTempLowerInHundredth, Word wSetTempUpperInHundredth, Word wSensorTempLowerInHundredth, Word wSensorTempUpperInHundredth)$/;"	f
+setTemperatureSensorCarlibrationData	neptune_hitachi_interface.cpp	/^Byte setTemperatureSensorCarlibrationData(Byte bCellNo, Word wSoftwareTempInHundredth, Word wRealTempInHundredth)$/;"	f
+setUartPullupVoltage	neptune_hitachi_interface.cpp	/^Byte setUartPullupVoltage(Byte bCellNo, Word wUartPullupVoltageInMilliVolts)$/;"	f
+setUartPullupVoltageDefault	neptune_hitachi_interface.cpp	/^Byte setUartPullupVoltageDefault(Byte bCellNo)$/;"	f
+setVoltageCalibration	neptune_hitachi_interface.cpp	/^Byte setVoltageCalibration(Byte bCellNo, Word wV5LowInMilliVolts, Word wV5HighInMilliVolts,$/;"	f
+setVoltageFallTime	neptune_hitachi_interface.cpp	/^Byte setVoltageFallTime(Byte bCellNo, Word wV5TimeInMsec, Word wV12TimeInMsec)$/;"	f
+setVoltageInterval	neptune_hitachi_interface.cpp	/^Byte setVoltageInterval(Byte bCellNo, int wTimeFromV5ToV12InMsec)$/;"	f
+setVoltageLimit	neptune_hitachi_interface.cpp	/^Byte setVoltageLimit(Byte bCellNo, Word wV5LowerLimitInMilliVolts, Word wV12LowerLimitInMilliVolts, Word wV5UpperLimitInMilliVolts, Word wV12UpperLimitInMilliVolts)$/;"	f
+setVoltageRiseTime	neptune_hitachi_interface.cpp	/^Byte setVoltageRiseTime(Byte bCellNo, Word wV5TimeInMsec, Word wV12TimeInMsec)$/;"	f
+showApiHelp	hitachi_sio2.cpp	/^static void showApiHelp(void)$/;"	f	file:
+si64kMaxPendingPerFPGA	neptune_hitachi_interface.cpp	/^static int 	si64kMaxPendingPerFPGA = WAPI_64K_MAX_PENDING_PER_FPGA_DEFAULT;$/;"	v	file:
+siBulkReadFromDrive	neptune_hitachi_interface.cpp	/^Byte siBulkReadFromDrive(Byte bCellNo, Word *wSize, Byte *bData, Word wTimeoutInMillSec)$/;"	f
+siBulkWriteToDrive	neptune_hitachi_interface.cpp	/^Byte siBulkWriteToDrive(Byte bCellNo, Word wSize, Byte *bData, Word wTimeoutInMillSec)$/;"	f
+siChangeToUart3	neptune_hitachi_interface.cpp	/^Byte siChangeToUart3(Byte bCellNo, Word wLineSpeed, Word wTimeoutInMillSec)$/;"	f
+siClearHaltOnError	neptune_hitachi_interface.cpp	/^Byte siClearHaltOnError(Byte bCellNo)$/;"	f
+siEchoDrive	neptune_hitachi_interface.cpp	/^Byte siEchoDrive(Byte bCellNo, Word wSize, Byte *bData, Word wTimeoutInMillSec)$/;"	f
+siFinalize	neptune_hitachi_interface.cpp	/^Byte siFinalize(Byte bCellNo)$/;"	f
+siGetAckTimeout	neptune_hitachi_interface.cpp	/^Byte siGetAckTimeout ( Byte bCellNo, Dword *wValue )$/;"	f
+siGetDriveUartVersion	neptune_hitachi_interface.cpp	/^Byte siGetDriveUartVersion(Byte bCellNo, Word *wVersion)$/;"	f
+siGetInterCharacterDelay	neptune_hitachi_interface.cpp	/^Byte siGetInterCharacterDelay ( Byte bCellNo, Dword *wValInBitTimes )$/;"	f
+siGetLastErrors	neptune_hitachi_interface.cpp	/^Byte siGetLastErrors(Byte bCellNo)$/;"	f
+siGetUartBaudrate	neptune_hitachi_interface.cpp	/^Byte siGetUartBaudrate(Byte bCellNo, Dword *dwBaudrate)$/;"	f
+siInitialize	neptune_hitachi_interface.cpp	/^Byte siInitialize(Byte bCellNo)$/;"	f
+siLogLevel	neptune_hitachi_interface.cpp	/^static int  siLogLevel = WAPI_DEFAULT_LOG_LEVEL;$/;"	v	file:
+siReadDriveMemory	neptune_hitachi_interface.cpp	/^Byte siReadDriveMemory(Byte bCellNo, Dword dwAddress, Word wSize, Byte *bData, Word wTimeoutInMillSec)$/;"	f
+siReadDriveMemory2KAndLess	neptune_hitachi_interface.cpp	/^Byte siReadDriveMemory2KAndLess(Byte bCellNo, Dword dwAddress, Word wSize, Byte *bData, Word wTimeoutInMillSec)$/;"	f
+siReadDriveMemoryMulti	neptune_hitachi_interface.cpp	/^Byte siReadDriveMemoryMulti(Byte bCellNo, Dword dwAddress, Word wSize, Byte *bData, Word wTimeoutInMillSec)$/;"	f
+siResetDrive	neptune_hitachi_interface.cpp	/^Byte siResetDrive(Byte bCellNo, Word wType, Word wResetFactor, Word wTimeoutInMillSec)$/;"	f
+siSensorTempLowerInHundredth	neptune_hitachi_interface.cpp	/^static Word siSensorTempLowerInHundredth = 0; $/;"	v	file:
+siSensorTempUpperInHundredth	neptune_hitachi_interface.cpp	/^static Word siSensorTempUpperInHundredth = 0;$/;"	v	file:
+siSetAckTimeout	neptune_hitachi_interface.cpp	/^Byte siSetAckTimeout ( Byte bCellNo, Dword wValue )$/;"	f
+siSetDebugLogLevel	neptune_hitachi_interface.cpp	/^Byte siSetDebugLogLevel(Byte bCellNo, Byte bLogLevel)$/;"	f
+siSetDriveDelayTime	neptune_hitachi_interface.cpp	/^Byte siSetDriveDelayTime(Byte bCellNo, Word wDelayTimeInMicroSec, Word wTimeoutInMillSec)$/;"	f
+siSetDriveFanRPM	neptune_hitachi_interface.cpp	/^Byte siSetDriveFanRPM(Byte bCellNo, int DriveFanRPM)$/;"	f
+siSetElectronicsFanRPM	neptune_hitachi_interface.cpp	/^Byte siSetElectronicsFanRPM(Byte bCellNo, int ElectronicsFanRPM)$/;"	f
+siSetFanRPMDefault	neptune_hitachi_interface.cpp	/^Byte siSetFanRPMDefault(Byte bCellNo)$/;"	f
+siSetInterCharacterDelay	neptune_hitachi_interface.cpp	/^Byte siSetInterCharacterDelay ( Byte bCellNo, Dword wValInBitTimes )$/;"	f
+siSetInterPacketDelay	neptune_hitachi_interface.cpp	/^Byte siSetInterPacketDelay ( Byte bCellNo, Dword wValue )$/;"	f
+siSetLed	neptune_hitachi_interface.cpp	/^Byte siSetLed(Byte bCellNo, Byte bMode)$/;"	f
+siSetSupplyOverVoltageProtectionLevel	neptune_hitachi_interface.cpp	/^Byte siSetSupplyOverVoltageProtectionLevel(Byte bCellNo, Word wV5LimitInMilliVolts, Word wV12LimitInMilliVolts)$/;"	f
+siSetTempLowerInHundredth	neptune_hitachi_interface.cpp	/^static Word siSetTempLowerInHundredth = 0; $/;"	v	file:
+siSetTempUpperInHundredth	neptune_hitachi_interface.cpp	/^static Word siSetTempUpperInHundredth = 0; $/;"	v	file:
+siSetUartBaudrate	neptune_hitachi_interface.cpp	/^Byte siSetUartBaudrate(Byte bCellNo, Dword dwBaudrate)$/;"	f
+siSetUartProtocol	neptune_hitachi_interface.cpp	/^Byte siSetUartProtocol(Byte bCellNo, Byte bProtocol)$/;"	f
+siSioConnected	neptune_hitachi_interface.cpp	/^static int 	siSioConnected = 0;  \/\/ 0:Ethernet NOT connected, Non-zero: Ethernet Connected$/;"	v	file:
+siSlotIdx	neptune_hitachi_interface.cpp	/^static int 	siSlotIdx = -1;$/;"	v	file:
+siTargetVoltage12VinMilliVolts	neptune_hitachi_interface.cpp	/^static int 	siTargetVoltage12VinMilliVolts = 0;$/;"	v	file:
+siTargetVoltage5VinMilliVolts	neptune_hitachi_interface.cpp	/^static int 	siTargetVoltage5VinMilliVolts = 0;$/;"	v	file:
+siTempAdjustmentOffset	neptune_hitachi_interface.cpp	/^static int  siTempAdjustmentOffset = 0;$/;"	v	file:
+siTemperatureTarget	neptune_hitachi_interface.cpp	/^static Word siTemperatureTarget = 0;$/;"	v	file:
+siUartProtocol	neptune_hitachi_interface.cpp	/^static int 	siUartProtocol = 1;$/;"	v	file:
+siUartPullupVoltageInMilliVolts	neptune_hitachi_interface.cpp	/^static int 	siUartPullupVoltageInMilliVolts = 0;$/;"	v	file:
+siV12LowerLimitInMilliVolts	neptune_hitachi_interface.cpp	/^static Word siV12LowerLimitInMilliVolts = 0; $/;"	v	file:
+siV12UpperLimitInMilliVolts	neptune_hitachi_interface.cpp	/^static Word siV12UpperLimitInMilliVolts = 0;$/;"	v	file:
+siV5LowerLimitInMilliVolts	neptune_hitachi_interface.cpp	/^static Word siV5LowerLimitInMilliVolts = 0; $/;"	v	file:
+siV5UpperLimitInMilliVolts	neptune_hitachi_interface.cpp	/^static Word siV5UpperLimitInMilliVolts = 0; $/;"	v	file:
+siWriteDriveMemory	neptune_hitachi_interface.cpp	/^Byte siWriteDriveMemory(Byte bCellNo, Dword dwAddress, Word wSize, Byte *bData, Word wTimeoutInMillSec)$/;"	f
+sio2wapi	neptune_hitachi_interface.cpp	198;"	d	file:
+skipWrite	hitachi_sio2.cpp	/^	Byte    skipWrite;$/;"	m	struct:drive_info_t	file:
+strSiInitError	hitachi_sio2.cpp	/^char *strSiInitError[] = {"Success", "TerError", "DriveError", "SIO_Not_Reachable", $/;"	v
+terError	neptune_hitachi_interface.cpp	/^static void terError(const char *funcName, Byte bCellNo, Neptune_sio2 *ns2, TER_Status status)$/;"	f	file:
+terFlushReceiveBuffer	neptune_hitachi_interface.cpp	/^static void terFlushReceiveBuffer(Byte bCellNo, Byte *sendRecvBuf, unsigned int *status1)$/;"	f	file:
+terGetWapiLibVersion	neptune_hitachi_interface.cpp	/^char *terGetWapiLibVersion ( void )$/;"	f
+terGetWapiTestMode	neptune_hitachi_interface.cpp	/^Byte terGetWapiTestMode(Byte bCellNo)$/;"	f
+terPrintError	neptune_hitachi_interface.cpp	/^void terPrintError(Byte bCellNo, TER_Status status)$/;"	f
+terPrintSlotInfo	neptune_hitachi_interface.cpp	/^void terPrintSlotInfo(Byte bCellNo)$/;"	f
+terPrintf	neptune_hitachi_interface.cpp	/^static void terPrintf(char *description, ...)$/;"	f	file:
+terReadTempAdjustments	neptune_hitachi_interface.cpp	/^static int terReadTempAdjustments(Byte bCellNo)  $/;"	f	file:
+terSetWapiTestMode	neptune_hitachi_interface.cpp	/^void terSetWapiTestMode(Byte bCellNo, Byte bMode)$/;"	f
+terSio2Connect	neptune_hitachi_interface.cpp	/^Byte terSio2Connect(void)$/;"	f
+terSio2Disconnect	neptune_hitachi_interface.cpp	/^Byte terSio2Disconnect(void)$/;"	f
+terSio2Reconnect	neptune_hitachi_interface.cpp	/^static Byte terSio2Reconnect(Byte bCellNo)$/;"	f	file:
+terprintf	hitachi_sio2.cpp	/^static void terprintf( const char* format, ... )$/;"	f	file:
+test01	hitachi_sio2.cpp	/^static Byte test01(int id, int driveType)$/;"	f	file:
+test02	hitachi_sio2.cpp	/^static Byte test02(int id, int driveType)$/;"	f	file:
+test03	hitachi_sio2.cpp	/^static Byte test03(int id, int driveType)$/;"	f	file:
+test04	hitachi_sio2.cpp	/^static Byte test04(int id, int driveType)$/;"	f	file:
+test05	hitachi_sio2.cpp	/^static Byte test05(int id, int driveType)$/;"	f	file:
+test06	hitachi_sio2.cpp	/^static Byte test06(int id, int driveType)$/;"	f	file:
+test07	hitachi_sio2.cpp	/^static Byte test07(int id, int driveType)$/;"	f	file:
+test08	hitachi_sio2.cpp	/^static Byte test08(int id, int driveType)$/;"	f	file:
+test09	hitachi_sio2.cpp	/^static Byte test09(int id, int driveType, int tgt1, int tgt2, int stemp, int ramp, int testTime)$/;"	f	file:
+test10	hitachi_sio2.cpp	/^static Byte test10(int id, int driveType)$/;"	f	file:
+test97	hitachi_sio2.cpp	/^static Byte test97(int id, int driveType)$/;"	f	file:
+test98	hitachi_sio2.cpp	/^static Byte test98(int id, int driveType)$/;"	f	file:
+test99	hitachi_sio2.cpp	/^static Byte test99(int id, int driveType)$/;"	f	file:
+testApi	hitachi_sio2.cpp	/^static Byte testApi(char *cmd, Byte id, int *p)$/;"	f	file:
+uartProtocol	hitachi_sio2.cpp	/^  	Byte 	uartProtocol;$/;"	m	struct:drive_info_t	file:
+validateReceivedData	neptune_hitachi_interface.cpp	/^static Byte validateReceivedData(Byte *sendRecvBuf, Word cmdLength, unsigned int respLength, $/;"	f	file:
+verbose	hitachi_sio2.cpp	/^static int  verbose;$/;"	v	file:
+wapi2sio	neptune_hitachi_interface.cpp	197;"	d	file:
+writeAddr	hitachi_sio2.cpp	/^	Dword   writeAddr;$/;"	m	struct:drive_info_t	file:
