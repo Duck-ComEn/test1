@@ -1,0 +1,1 @@
+sh build.sh.child $1 $2 | tee build.sh.log

@@ -1,0 +1,183 @@
+#!/bin/bash
+ 
+
+loopCount=100
+slotUnderTest=3
+
+stt='./wapitest stt'
+gct='./wapitest gct'
+gcv='./wapitest gcv'
+stv='./wapitest stv'
+rdm='./wapitest rdm'
+wdm='./wapitest wdm'
+spr='./wapitest spr'
+snr='./wapitest snr'
+gpr='./wapitest gpr'
+gnr='./wapitest gnr'
+gho='./wapitest gho'
+ech='./wapitest ech'
+sid='./wapitest sid'
+sup='./wapitest sup'
+
+# Test voltage
+tDrivePower()
+{
+	echo "This test will cycle power to hdd"
+	# for loop
+	for (( i=1;i<$loopCount;i++)); do
+		echo -n $i "Off -> " 
+		$stv  $slotUnderTest 0 0
+		sleep 2
+		$gcv  $slotUnderTest
+		echo -n $i "On  -> "
+		$stv  $slotUnderTest 5000 0
+		sleep 2
+		$gcv  $slotUnderTest
+	done 
+}
+
+# Test Memory Read
+tMemoryRead()
+{
+	echo -n "Is drive powered up? [y/n] -> "
+	read  choice
+	if [ $choice = "n" ]; then
+    	# Turn on drive power
+		$stv  $slotUnderTest 5000 0
+
+		# wait 90 secs
+		sleep 90
+	fi
+	# Read
+	for (( i=1;i<$loopCount;i++)); do
+		$rdm  $slotUnderTest 0x39ef0 2000
+		sleep 1
+	done 
+}
+
+
+# Test Temp Control
+tTempControl()
+{
+	echo -n "Enter Positive Ramp Rate in degree C/min -> "
+	read  posRampRate
+	posRampRateX100=$((posRampRate*100))
+
+	echo -n "Enter Negative Ramp Rate in degree C/min -> "
+	read  negRampRate
+	negRampRateX100=$((negRampRate*100))
+
+	echo -n "Enter target temp in degree C -> "
+	read  targetTemp
+	targetTempX100=$((targetTemp*100))
+	
+	echo "Setting positive ramp rate to $posRampRate degree C/min"
+	$spr $slotUnderTest $posRampRateX100
+	
+	echo "Setting negative ramp rate to $negRampRate degree C/min"
+	$spr $slotUnderTest $negRampRateX100
+	
+	echo "Setting target temp to $targetTemp degree C"
+	$stt $slotUnderTest $targetTempX100
+	
+	echo -e "\n\nWaiting for target temp to reach $targetTemp degree C. Hit Ctrl-C to exit"
+	for (( i=1;i<100;i++)); do
+		$gct $slotUnderTest 
+		$gho $slotUnderTest
+		sleep 5
+	done 
+}
+
+
+
+# Echo, read, Write test
+tEchoReadWrite()
+{
+
+	echo -n "Drive type? e=EB7 (10s warm up), j=JTB(90sec warm up) -> "
+	read  choice
+
+	if [ $choice = "j" ]; then
+		wdelay=90;
+		
+# Inter char delay
+		$sid $slotUnderTest 10
+		sleep 2
+	else
+		wdelay=10;
+		
+# Inter char delay
+		$sid $slotUnderTest 2047
+		sleep 2
+	fi
+
+
+
+# Power up DUT and wait for X seconds
+	$stv $slotUnderTest 5000 0
+	sleep 2
+	
+	sleep $wdelay
+	
+# Set UART pull up voltage and enable
+	$sup $slotUnderTest 2500
+	sleep 2
+	
+	echo "**********************************************"
+	echo "*** Echo Test "
+	echo "**********************************************"
+	
+	if [ $choice = "j" ]; then
+		$ech $slotUnderTest 512 0 0
+	else
+		$ech $slotUnderTest 512 0 1
+	fi
+	sleep 1
+	echo "**********************************************"
+	echo "*** Read Test "
+	echo "**********************************************"
+	if [ $choice = "j" ]; then
+		$rdm $slotUnderTest 0x08331000 200 0
+	else
+		$rdm $slotUnderTest 0x08331000 200 1
+	fi
+	sleep 1
+	echo "**********************************************"
+	echo "*** Write Test "
+	echo "**********************************************"
+	if [ $choice = "j" ]; then
+		$rdm $slotUnderTest 0x08331063 2 0
+	else
+		$rdm $slotUnderTest 0x08331063 2 1
+	fi
+	sleep 1
+	$wdm $slotUnderTest 0x08331063 2
+	sleep 1
+	if [ $choice = "j" ]; then
+		$rdm $slotUnderTest 0x08331063 2 0
+	else
+		$rdm $slotUnderTest 0x08331063 2 1
+	fi
+	sleep 1
+	$stv $slotUnderTest 0 0
+
+}
+
+echo "1) Drive power on/off"
+echo "2) Read from drive memory"
+echo "3) Temperature control"
+echo "4) Echo/Read/Write test"
+echo "5) Exit"
+echo -n "Which test would you like to run? "
+read case;
+
+case $case in
+    1) tDrivePower;;
+    2) tMemoryRead;;
+    3) tTempControl;;
+    4) echo -n "Slot? "; read slotUnderTest; tEchoReadWrite;;
+    5) exit
+esac 
+
+
+

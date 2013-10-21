@@ -1,0 +1,105 @@
+//bCellNo:2
+//wCellIndex:1
+//wTrayIndex:1
+//
+// hgst cell id of one start (1, 2, ...). it should be located at top line
+//   xc3dp: (cellIndex - 1) x 2 + trayIndex
+//   op:    (cellIndex - 1) x 12 + trayIndex
+//
+// --------------------------------------------------------------------------------------
+// Keyword  Name                                           Value
+// --------------------------------------------------------------------------------------
+TEST_PARAM  isTestMode                                     0     5   512  0  // [arg1]  0: normal test script
+                                                                             //         1: HOST_COM_LOOPBACK_TEST
+                                                                             //         2: HOST_COM_DOWNLOAD_TEST
+                                                                             //         3: HOST_COM_MESSAGE_TEST
+                                                                             //         4: HOST_COM_UPLOAD_TEST
+                                                                             //         5: DRIVE_COM_READ_TEST
+                                                                             //         6: DRIVE_COM_READ_THEN_HOST_COM_UPLOAD_TEST
+                                                                             // [arg2]  num of data
+                                                                             // [arg3]  data size in byte
+                                                                             // [arg4]  momory address
+TEST_PARAM  bTestResultFileName                            "/result/00000001.000"             // 100 bytes max
+TEST_PARAM  bTestPfTableFileName                           "c:/!lts/!system/!etc/ec2pf.tbl"   // 100 bytes max
+TEST_PARAM  bTestMfgId                                     "S?????"                           // 6 bytes. '?' is wild card
+TEST_PARAM  bTestLabelMfgIdOffset                          2                                  // 0 for PTB, 2 for STN
+TEST_PARAM  bTestSerialNumber                              "M???????"                         // 8 bytes. '?' is wild card
+TEST_PARAM  bTestDefaultBadHeadTable                       0x9 0x8 0x7 0x6 0x5 0x4 0x3 0x2 0x1 0x0
+                                                           // GMK 10HD 0x9 0x8 0x7 0x6 0x5 0x4 0x3 0x2 0x1 0x0
+                                                           // GMK  8HD 0x7 0x6 0x5 0x4 0x3 0x2 0x1 0x0 0xf 0xf
+                                                           // GMK  6HD 0x7 0x6 0x5 0x4 0x3 0x2 0xf 0xf 0xf 0xf
+TEST_PARAM  dwDriveTestElapsedTimeSec                      0000:00:00 // hhhh:mm:ss
+TEST_PARAM  dwDriveTestIdentifyTimeoutSec                  0000:03:00 // hhhh:mm:ss
+TEST_PARAM  dwDriveTestStatusPollingIntervalTimeSec        0000:02:00 // hhhh:mm:ss
+TEST_PARAM  dwDriveTestCutoffTimeoutSec                    0000:05:00 // hhhh:mm:ss
+TEST_PARAM  dwDriveTestTimeoutSec                          0000:10:00 // hhhh:mm:ss
+TEST_PARAM  dwDriveTestRawdataDumpTimeoutSec               0000:05:00 // hhhh:mm:ss
+TEST_PARAM  dwDriveAmbientTemperatureTarget                2500       // Not in Use ... Range: 2000 -to- 6500 (20.00C -to- 65.00C)
+TEST_PARAM  dwDriveAmbientTemperaturePositiveRampRate      100        // Not in Use ... Range: 1 -to- 200 (+0.01C/min -to- +2.00C/min)
+TEST_PARAM  dwDriveAmbientTemperatureNegativeRampRate      100        // Not in Use ... Range: 1 -to- 200 (+0.01C/min -to- +2.00C/min)
+TEST_PARAM  dwDrivePowerSupply5V                           5000       // Range: 4500 -to- 5000 (4.5V -to- 5.5V)
+TEST_PARAM  dwDrivePowerSupply12V                          12000      // Range: 10800 -to- 13200 (10.8V -to- 13.2V)
+TEST_PARAM  dwDrivePowerRiseTime5V                         0          // Range: 0 -to- 1000 (0msec -to- 1000msec)
+TEST_PARAM  dwDrivePowerRiseTime12V                        0          // Range: 0 -to- 1000 (0msec -to- 1000msec)
+TEST_PARAM  dwDrivePowerIntervalFrom5VTo12V                0          // Range: -1000 -to- 1000 (12VOn->1000msec->5Von -to- 5Von->1000msec->12Von)
+TEST_PARAM  dwDrivePowerOnWaitTime                         20         // Range: > 0 in Sec (e.g. 20 sec for 3D model, 30sec for 5D model, refer drive function spec)
+TEST_PARAM  dwDrivePowerOffWaitTime                        20         // Range: > 0 in Sec
+TEST_PARAM  dwDriveUartPullup                              2500       // Range: 1800 -to- 3300 (1.8V -to- 3.3V)
+TEST_PARAM  isNoPlugCheck                                  1
+TEST_PARAM  isNoPowerControl                               1
+TEST_PARAM  isNoPowerOffAfterTest                          0
+TEST_PARAM  isNoDriveFinalized                             0
+TEST_PARAM  isBadHeadReport                                1
+TEST_PARAM  isMultiGrading                                 1          // shall turn off for old product (GMK, PFV, VNF, ...)
+TEST_PARAM  isDriveVoltageDataReport                       1          // report is needed for only mobile product
+TEST_PARAM  isForceDriveTestCompFlagOn                     0          // set test time out flag after identify
+TEST_PARAM  isForceDriveUnload                             0          // set emergency power shutdown flag after identify
+TEST_PARAM  isTesterLogMirrorToStdout                      1
+TEST_PARAM  isTesterLogReportEnable                        7          // report if (Bit0:Pass, Bit1:Fail, Bit2:GODx)
+TEST_PARAM  isFakeErrorCode                                0 0x123456 // overwrite error code with it if the flag set.
+TEST_PARAM  dwTesterLogSizeKByte                           64         // Log Cyclic Buffer Size in KByte (DANGER: Must be < 128)
+
+
+// ---------------------------------------------------------------------------------------------------
+// Keyword  Name                    Address     Address   Size      AccessFlag EndianFlag     ReportFlag
+//          20 Byte Fixed                       Offset    [Byte]    0:Direct   0:8b           0:No Report
+//          Including Space                               Max63KB   1:Indirect 1:16bLE->8b    1:Report before Rawdata Dump
+//                                                                  2:Echo     2:32bLE->8b    2:Report after Rawdata Dump
+//                                                                             3:16bLE->16b   '?':Report after ? Signature Finished
+//                                                                             4:32bLE->32b
+// ---------------------------------------------------------------------------------------------------
+DRIVE_INFO  "SERIALNUMBER        "  0x000001D6  0         8         2          1              0
+DRIVE_INFO  "MFGID               "  0x000001D0  0         6         2          1              0
+DRIVE_INFO  "MicroRevisionLevel  "  0x00000000  0         8         2          0              0
+DRIVE_INFO  "ServoSectorNumber   "  0x00000114  0         2         2          1              0
+DRIVE_INFO  "HeadNumber          "  0x00000116  0         1         2          0              0
+DRIVE_INFO  "HEADTABLE           "  0x00000118  0         10        2          0              1
+DRIVE_INFO  "TPI_INFORMATION     "  0x00000122  0         20        2          1              1
+DRIVE_INFO  "SpindleRpm          "  0x00000184  0         2         2          3              0
+DRIVE_INFO  "SRSTSEQUENCE        "  0x00074200  0         512       0          0              1
+DRIVE_INFO  "MFGID_ON_LABEL      "  0x0007425E  0         6         0          0              0
+DRIVE_INFO  "TEMPERATURE         "  0x000740C4  0         1         1          0              0
+DRIVE_INFO  "STEP_COUNT          "  0x0007420C  0         1         0          0              0
+DRIVE_INFO  "STATUS_AND_CONTROL  "  0x0007400B  0         1         0          0              0
+DRIVE_INFO  "IMMEDIATE_FLAG      "  0x00074263  0         1         0          0              0
+DRIVE_INFO  "LASTPAGE            "  0x00074190  0         2         0          3              0
+DRIVE_INFO  "LASTPOINTER         "  0x00074192  0         2         0          3              0
+DRIVE_INFO  "NUMOFSETUPPAGE      "  0x00074144  0         2         0          3              0
+DRIVE_INFO  "SRSTRESULT          "  0x00074800  0         0         0          0              0
+DRIVE_INFO  "PESTOTALPAGE        "  0x0007426C  0         2         0          3              0
+DRIVE_INFO  "PESCYLINDER         "  0x00074212  0         4         0          4              0
+DRIVE_INFO  "PESHEAD             "  0x0007412C  0         1         0          0              0
+DRIVE_INFO  "PESTEMPERATURE      "  0x000741E2  0         1         0          0              0
+DRIVE_INFO  "PESDATACOUNT        "  0x00074268  0         2         0          3              0
+// DRIVE_INFO  "PESSPINDLESPEED     "  0x0007426A  0         2         0          3              0  => replased with "SpindleRpm"
+DRIVE_INFO  "PESSERVOSECTOR      "  0x00074294  0         2         0          3              0
+DRIVE_INFO  "PESDATAUART         "  0x00074A00  0         0         0          0              0
+DRIVE_INFO  "MCSRESULT           "  0x00074A00  0         0         0          0              0
+DRIVE_INFO  "ERRORCODE           "  0x00074208  0         2         0          3              0
+DRIVE_INFO  "badHead:            "  0x00074248  0         2         0          3              0
+DRIVE_INFO  "SRVM_DUMP           "  0x000740B8  0         0x9A8     1          0              1
+DRIVE_INFO  "HeadParametricData  "  0x00075200  0         512       0          0              2
+DRIVE_INFO  "PRE_SAT_RESULT      "  0x00075400  0         512       0          0              2
+DRIVE_INFO  "SRSTSIGNATURE       "  0x00074400  0         1024      0          0              0
+DRIVE_INFO  "ALTTRKTBL           "  0x00074088  -0xC      2048      1          0              'd'
+DRIVE_INFO  "ZONEPARAMETER       "  0x00074090  -0x1868   0x5600    1          0              1

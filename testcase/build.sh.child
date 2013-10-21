@@ -1,0 +1,191 @@
+#!/bin/sh
+
+#--------------------------------------------------------------------------
+usage()
+#--------------------------------------------------------------------------
+{
+    echo ""
+    echo "usage: (for test script developer)"
+    echo "        $./build testscript"
+    echo ""
+    echo "usage: (for testcase developer)"
+    echo "        $./build [machine name] [library version]"
+    echo ""
+    echo "        example"
+    echo ""
+    echo "            $./build.sh xcal     beta1p  // for xcalibre beta1p"
+    echo "            $./build.sh xcal     beta2   // for xcalibre beta2"
+    echo "            $./build.sh optimus  beta1p  // for optimus beta1p"
+    echo "            $./build.sh optimus  beta2   // for optimus beta2"
+    echo "            $./build.sh neptune2 beta2   // for neptune2 beta2"
+    echo "            $./build.sh neptune2 beta3   // for neptune2 beta3(V3.0)"
+    echo "            $./build.sh neptune2 beta4   // for neptune2 beta4(V3.1)"
+    echo "            $./build.sh neptune2 beta5   // for neptune2 beta5(V3.2)"
+    echo "            $./build.sh neptune2 v3p3    // for neptune2 V3.3"
+    echo "            $./build.sh neptune2 v3p5p4  // for neptune2 V3.5.4"
+    echo ""
+}
+
+#--------------------------------------------------------------------------
+link()
+#--------------------------------------------------------------------------
+{
+    echo $1 $2
+    cd ..
+    rm slotio
+    ln -s slotio_$1_$2 slotio
+    cd testcase
+}
+
+#--------------------------------------------------------------------------
+build_testscript()
+#--------------------------------------------------------------------------
+{
+    echo "----------------------------------------------------------------------"
+    cd ../testscript
+    make clean
+    make
+
+    echo "----------------------------------------------------------------------"
+    cd ../testcase
+    make testcase
+}
+#--------------------------------------------------------------------------
+build_all()
+#--------------------------------------------------------------------------
+{
+    echo $0 $1 $2
+
+    astyle -lcs2pn ../hostio/*.[ch] ../testscript/*.[ch] ../signalhandler/*.[ch] ../chamberscript/*.[ch] ../syncmanager/*.[ch] *.[ch] > /dev/null 2>&1
+    
+    echo "----------------------------------------------------------------------"
+    if [ "$1" = "neptune2" ]
+	then
+#    echo "skiping build in slotio because Teradyne does not provide source code but .a archive file only"
+	cd ../slotio
+	make clean
+	make libsi.a
+    else
+	cd ../slotio
+	make clean
+	make $1
+    fi
+    
+    echo "----------------------------------------------------------------------"
+    cd ../testscript
+    make clean
+    make
+    
+    echo "----------------------------------------------------------------------"
+    cd ../signalhandler
+    make clean
+    make
+    
+    echo "----------------------------------------------------------------------"
+    cd ../chamberscript
+    make clean
+    make
+    
+    echo "----------------------------------------------------------------------"
+    cd ../hostio
+    make clean
+    make
+    
+    echo "----------------------------------------------------------------------"
+    cd ../syncmanager
+    make clean
+    make
+    
+    echo "----------------------------------------------------------------------"
+    cd ../versioncontrol/
+    make clean
+    make
+    
+    echo "----------------------------------------------------------------------"
+    cd ../testcase
+    make clean
+    make
+    
+    echo "----------------------------------------------------------------------"
+    cd ../testcase
+    make testcase
+}
+
+#--------------------------------------------------------------------------
+if [ "$1" = "xcal" ]
+    then
+    if [ "$2" = "beta1p" ]
+	then
+	link "xyratex" $2
+	build_all $1 $2
+    elif [ "$2" = "beta2" ]
+	then
+	build_all $1 $2
+	link "xyratex" $2
+    else
+	usage
+	exit 0
+    fi
+elif [ "$1" = "optimus" ]
+    then
+    if [ "$2" = "beta1p" ]
+	then
+	link "xyratex" $2
+	build_all $1 $2
+    elif [ "$2" = "beta2" ]
+	then
+	link "xyratex" $2
+	build_all $1 $2
+    else
+	usage
+	exit 0
+    fi
+elif [ "$1" = "neptune2" ]
+    then
+    if [ "$2" = "beta2" ]
+	then
+	link "teradyne" $2
+	build_all $1 $2
+    elif [ "$2" = "beta3" ]
+	then
+	link "teradyne" $2
+	build_all $1 $2
+    elif [ "$2" = "beta4" ]
+	then
+	link "teradyne" $2
+	build_all $1 $2
+    elif [ "$2" = "beta5" ]
+	then
+	link "teradyne" $2
+	build_all $1 $2
+    elif [ "$2" = "v3p3" ]
+	then
+	link "teradyne" $2
+	build_all $1 $2
+    elif [ "$2" = "v3p5p4" ]
+	then
+	link "teradyne" $2
+	build_all $1 $2
+    elif [ "$2" = "v3p6" ]
+	then
+	link "teradyne" $2
+	build_all $1 $2
+    elif [ "$2" = "p1rc" ]
+	then
+	echo ""
+	echo "WARNING: neptune2 p1rc is no longer available. see usage."
+	usage
+	exit 0
+    else
+	usage
+	exit 0
+    fi
+elif [ "$1" = "testscript" ]
+    then
+    build_testscript
+else
+    usage
+    exit 0
+fi
+
+

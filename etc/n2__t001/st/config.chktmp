@@ -1,0 +1,50 @@
+// --------------------------------------------------------------------------------------
+// Keyword  Name                                           Value
+// --------------------------------------------------------------------------------------
+TEST_PARAM  isTestMode                                     10   52   61  3600
+                                                            // assumption
+                                                            //   * target temp   : 58
+                                                            //   * delta(-)      : -4(measured) -2(margin)
+                                                            //   * delta(+)      : +1(measured) +2(margin)
+
+//TEST_PARAM  bTestResultFileName                            "/result/00000001.000"             // 100 bytes max
+TEST_PARAM  bTestPfTableFileName                           "c:/!lts/!system/!etc/ec2pf.tbl"   // 100 bytes max
+TEST_PARAM  bTestMfgId                                     "P?????"                           // 6 bytes. '?' is wild card
+TEST_PARAM  bTestSerialNumber                              "????????"                         // 8 bytes. '?' is wild card
+TEST_PARAM  bTestUartProtocol                              0                 // 0:PTB/STN, 1:JPK
+TEST_PARAM  dwTestUartBaudrate                             1843200 
+TEST_PARAM  dwDriveTestIdentifyTimeoutSec                  0000:05:00 // hhhh:mm:ss
+TEST_PARAM  dwDriveTestStatusPollingIntervalTimeSec        0000:00:30 // hhhh:mm:ss
+TEST_PARAM  dwDriveTestTimeoutSec                          0002:00:00 // hhhh:mm:ss
+TEST_PARAM  dwDrivePowerSupply5V                           5000       // Range: 4500 -to- 5000 (4.5V -to- 5.5V)
+TEST_PARAM  dwDrivePowerSupply12V                          0          // Range: 10800 -to- 13200 (10.8V -to- 13.2V)
+TEST_PARAM  dwDrivePowerOnWaitTime                         90         // Range: > 0 in Sec (e.g. 20 sec for 3D model, 30sec for 5D model, refer drive function spec)
+TEST_PARAM  dwDrivePowerOffWaitTime                        10         // Range: > 0 in Sec (e.g. 20 sec for 2D model, 30sec for 5D model, refer drive function spec)
+TEST_PARAM  dwDriveUartPullup                              2500       // Range: 1800 -to- 3300 (1.8V -to- 3.3V)
+TEST_PARAM  isNoPlugCheck                                  0
+TEST_PARAM  isNoPowerControl                               0
+TEST_PARAM  isNoPowerOffAfterTest                          0
+TEST_PARAM  isNoDriveFinalized                             1
+TEST_PARAM  isForceDriveTestCompFlagOn                     0          // set test time out flag after identify
+TEST_PARAM  isForceDriveUnload                             1          // set emergency power shutdown flag after identify
+TEST_PARAM  isTesterLogMirrorToStdout                      0
+TEST_PARAM  isTesterLogReportEnable                        7          // report if (Bit0:Pass, Bit1:Fail, Bit2:GODx)
+TEST_PARAM  isFakeErrorCode                                0 0x123456 // overwrite error code with it if the flag set.
+TEST_PARAM  dwTesterLogSizeKByte                           64         // Log Cyclic Buffer Size in KByte (DANGER: Must be < 128)
+
+// ---------------------------------------------------------------------------------------------------
+// Keyword  Name                    Address     Address   Size      AccessFlag EndianFlag     ReportFlag
+//          20 Byte Fixed                       Offset    [Byte]    0:Direct   0:8b           0:No Report
+//          Including Space                               Max64KB   1:Indirect 1:16bLE->8b    1:Report before Rawdata Dump
+//                                                                  2:Echo     2:32bLE->8b    2:Report after Rawdata Dump
+//                                                                             3:16bLE->16b   '?':Report after ? Signature Finished
+//                                                                             4:32bLE->32b
+// ---------------------------------------------------------------------------------------------------
+DRIVE_INFO  "SRSTSEQUENCE        "  0x00070200  0         512       0          0              0
+DRIVE_INFO  "SERIALNUMBER        "  0x00070378  12        8         1          1              0
+DRIVE_INFO  "MFGID               "  0x00070378  6         6         1          1              0
+DRIVE_INFO  "SRSTSIGNATURE       "  0x00073600  0         1024      0          0              0
+DRIVE_INFO  "STEP_COUNT          "  0x0007020F  0         1         0          0              0
+DRIVE_INFO  "TEMPERATURE         "  0x00070344  0         1         1          0              0
+DRIVE_INFO  "STATUS_AND_CONTROL  "  0x0007000B  0         1         0          0              0
+DRIVE_INFO  "IMMEDIATE_FLAG      "  0x00070263  0         1         0          0              0

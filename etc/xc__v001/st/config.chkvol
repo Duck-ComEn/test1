@@ -1,0 +1,18 @@
+// --------------------------------------------------------------------------------------
+// Keyword  Name                                           Value
+// --------------------------------------------------------------------------------------
+TEST_PARAM  isTestMode                                     11  0 0 0
+
+
+
+
+
+//TEST_PARAM  bTestResultFileName                            "/result/00000001.000"             // 100 bytes max
+TEST_PARAM  bTestPfTableFileName                           "c:/!lts/!system/!etc/ec2pf.tbl"   // 100 bytes max
+TEST_PARAM  dwDrivePowerSupply5V                           5000       // Range: 4500 -to- 5000 (4.5V -to- 5.5V)
+TEST_PARAM  dwDrivePowerSupply12V                          12000      // Range: 10800 -to- 13200 (10.8V -to- 13.2V)
+TEST_PARAM  dwDrivePowerOnWaitTime                         15         // Range: > 0 in Sec (e.g. 20 sec for 3D model, 30sec for 5D model, refer drive function spec)
+TEST_PARAM  dwDrivePowerOffWaitTime                        10         // Range: > 0 in Sec (e.g. 20 sec for 2D model, 30sec for 5D model, refer drive function spec)
+TEST_PARAM  isTesterLogMirrorToStdout                      0
+TEST_PARAM  isTesterLogReportEnable                        7          // report if (Bit0:Pass, Bit1:Fail, Bit2:GODx)
+TEST_PARAM  dwTesterLogSizeKByte                           64         // Log Cyclic Buffer Size in KByte (DANGER: Must be < 128)

@@ -1,0 +1,1 @@
+2010/07/07 XC__U002 : Put new testcase to force LED turned off, because GSP XCalibre machine sometimes fails infrared communication due to RED LED

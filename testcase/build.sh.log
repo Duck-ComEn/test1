@@ -1,0 +1,77 @@
+teradyne beta5
+build.sh.child neptune2 beta5
+----------------------------------------------------------------------
+rm -rf neptune_hitachi_interface.o hitachi_sio2.o neptune_hitachi_comm.o neptune_hitachi_comm.d neptune_hitachi_interface.d hitachi_sio2.d  wapitest libsi.a
+ 
+Building file: neptune_hitachi_interface.cpp
+Invoking: GCC C++ Compiler
+g++ -DNEPTUNE_CLIENT_BUILD -O0 -g -g3 -Wall -Werror -c -fmessage-length=0 -MMD -MP -MF"neptune_hitachi_interface.d" -MT"neptune_hitachi_interface.d" -o"neptune_hitachi_interface.o" "neptune_hitachi_interface.cpp"
+Finished building: neptune_hitachi_interface.cpp
+ 
+Building file: neptune_hitachi_comm.c
+Invoking: GCC C Compiler
+gcc -DNEPTUNE_CLIENT_BUILD -O0 -g -g3 -w -Wall -c -fmessage-length=0 -MMD -MP -MF"neptune_hitachi_comm.d" -MT"neptune_hitachi_comm.d" -o"neptune_hitachi_comm.o" "neptune_hitachi_comm.c"
+Finished building: neptune_hitachi_comm.c
+ 
+Linking libsi.a
+ar -r libsi.a neptune_hitachi_interface.o neptune_hitachi_comm.o  neptune_sio2.a librpclib.a
+-rw-rw-r-- 1 testpc testpc 900316 Oct 14 17:34 libsi.a
+----------------------------------------------------------------------
+cc -Werror -Wall -Wshadow -Wredundant-decls -g -D_REENTRANT -DLINUX -Wno-pointer-sign    -c -o tsAbort.o tsAbort.c
+cc -Werror -Wall -Wshadow -Wredundant-decls -g -D_REENTRANT -DLINUX -Wno-pointer-sign    -c -o tsCom.o tsCom.c
+cc -Werror -Wall -Wshadow -Wredundant-decls -g -D_REENTRANT -DLINUX -Wno-pointer-sign    -c -o tsEnv.o tsEnv.c
+cc -Werror -Wall -Wshadow -Wredundant-decls -g -D_REENTRANT -DLINUX -Wno-pointer-sign    -c -o tsError.o tsError.c
+cc -Werror -Wall -Wshadow -Wredundant-decls -g -D_REENTRANT -DLINUX -Wno-pointer-sign    -c -o tsHead.o tsHead.c
+cc -Werror -Wall -Wshadow -Wredundant-decls -g -D_REENTRANT -DLINUX -Wno-pointer-sign    -c -o tsHost.o tsHost.c
+cc -Werror -Wall -Wshadow -Wredundant-decls -g -D_REENTRANT -DLINUX -Wno-pointer-sign    -c -o tsIdfy.o tsIdfy.c
+cc -Werror -Wall -Wshadow -Wredundant-decls -g -D_REENTRANT -DLINUX -Wno-pointer-sign    -c -o tsLib.o tsLib.c
+cc -Werror -Wall -Wshadow -Wredundant-decls -g -D_REENTRANT -DLINUX -Wno-pointer-sign    -c -o tsMain.o tsMain.c
+cc -Werror -Wall -Wshadow -Wredundant-decls -g -D_REENTRANT -DLINUX -Wno-pointer-sign    -c -o tsParse.o tsParse.c
+cc -Werror -Wall -Wshadow -Wredundant-decls -g -D_REENTRANT -DLINUX -Wno-pointer-sign    -c -o tsPoll.o tsPoll.c
+cc -Werror -Wall -Wshadow -Wredundant-decls -g -D_REENTRANT -DLINUX -Wno-pointer-sign    -c -o tsRaw.o tsRaw.c
+cc -Werror -Wall -Wshadow -Wredundant-decls -g -D_REENTRANT -DLINUX -Wno-pointer-sign    -c -o tsStat.o tsStat.c
+Linking libts.a
+ar -r libts.a tsAbort.o tsCom.o tsEnv.o tsError.o tsHead.o tsHost.o tsIdfy.o tsLib.o tsMain.o tsParse.o tsPoll.o tsRaw.o tsStat.o 
+-rw-rw-r-- 1 testpc testpc 362370 Oct 14 17:34 libts.a
+----------------------------------------------------------------------
+cc -Werror -Wall -Wshadow -Wredundant-decls -g -D_REENTRANT -DLINUX -Wno-pointer-sign    -c -o shMain.o shMain.c
+Linking libsh.a
+ar -r libsh.a shMain.o 
+-rw-rw-r-- 1 testpc testpc 11608 Oct 14 17:34 libsh.a
+----------------------------------------------------------------------
+cc -Werror -Wall -Wshadow -Wredundant-decls -g -D_REENTRANT -DLINUX -Wno-pointer-sign    -c -o csMain.o csMain.c
+cc -Werror -Wall -Wshadow -Wredundant-decls -g -D_REENTRANT -DLINUX -Wno-pointer-sign    -c -o csApi.o csApi.c
+cc -Werror -Wall -Wshadow -Wredundant-decls -g -D_REENTRANT -DLINUX -Wno-pointer-sign    -c -o csInterpreter.o csInterpreter.c
+cc -Werror -Wall -Wshadow -Wredundant-decls -g -D_REENTRANT -DLINUX -Wno-pointer-sign    -c -o csSyntaxProcess.o csSyntaxProcess.c
+cc -Werror -Wall -Wshadow -Wredundant-decls -g -D_REENTRANT -DLINUX -Wno-pointer-sign    -c -o csUnit.o csUnit.c
+Linking libcs.a
+ar -r libcs.a csMain.o csApi.o csInterpreter.o csSyntaxProcess.o csUnit.o 
+-rw-rw-r-- 1 testpc testpc 158566 Oct 14 17:34 libcs.a
+----------------------------------------------------------------------
+cc -Werror -Wall -Wshadow -Wredundant-decls -g -D_REENTRANT -DLINUX -Wno-pointer-sign    -c -o hiMain.o hiMain.c
+cc -Werror -Wall -Wshadow -Wredundant-decls -g -D_REENTRANT -DLINUX -Wno-pointer-sign    -c -o hiPipe.o hiPipe.c
+Linking libhi.a
+ar -r libhi.a hiMain.o hiPipe.o 
+-rw-rw-r-- 1 testpc testpc 15860 Oct 14 17:34 libhi.a
+----------------------------------------------------------------------
+cc -Werror -Wall -Wshadow -Wredundant-decls -g -D_REENTRANT -DLINUX -Wno-pointer-sign    -c -o smMain.o smMain.c
+cc -Werror -Wall -Wshadow -Wredundant-decls -g -D_REENTRANT -DLINUX -Wno-pointer-sign    -c -o smApi.o smApi.c
+Linking libsm.a
+ar -r libsm.a smMain.o smApi.o 
+-rw-rw-r-- 1 testpc testpc 27274 Oct 14 17:34 libsm.a
+----------------------------------------------------------------------
+cc -Werror -Wall -Wshadow -Wredundant-decls -g -D_REENTRANT -DLINUX -Wno-pointer-sign    -c -o vcMain.o vcMain.c
+Linking libvc.a
+ar -r libvc.a vcMain.o 
+-rw-rw-r-- 1 testpc testpc 3562 Oct 14 17:34 libvc.a
+----------------------------------------------------------------------
+cc -Werror -Wall -Wshadow -Wredundant-decls -g -D_REENTRANT -DLINUX -Wno-pointer-sign    -c -o tcMain.o tcMain.c
+cc -Werror -Wall -Wshadow -Wredundant-decls -g -D_REENTRANT -DLINUX -Wno-pointer-sign    -c -o tcFilter.o tcFilter.c
+cc -Werror -Wall -Wshadow -Wredundant-decls -g -D_REENTRANT -DLINUX -Wno-pointer-sign    -c -o tcDebug.o tcDebug.c
+Linking libtc.a
+ar -r libtc.a tcMain.o tcFilter.o tcDebug.o
+-rw-rw-r-- 1 testpc testpc 91580 Oct 14 17:34 libtc.a
+----------------------------------------------------------------------
+Linking testcase
+gcc -o testcase ../testcase/libtc.a ../testscript/libts.a ../signalhandler/libsh.a ../chamberscript/libcs.a ../syncmanager/libsm.a ../slotio/libsi.a ../hostio/libhi.a ../versioncontrol/libvc.a -lpthread -lstdc++ -g -rdynamic ../slotio/neptune_sio2.a ../slotio/librpclib.a  -L.
+-rwxrwxr-x 1 testpc testpc 1126741 Oct 14 17:34 testcase

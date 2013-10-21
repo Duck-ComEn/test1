@@ -1,0 +1,100 @@
+//bCellNo:57
+//wCellIndex:10
+//wTrayIndex:1
+// --------------------------------------------------------------------------------------
+// Keyword  Name                                           Value
+// --------------------------------------------------------------------------------------
+TEST_PARAM  isTestMode                                     0  1000   512  0  // [arg1]  0: normal test script
+                                                                             //         1: HOST_COM_NEAR_LOOPBACK_TEST
+                                                                             //         2: HOST_COM_FAR_LOOPBACK_TEST
+                                                                             //         3: HOST_COM_DOWNLOAD_TEST
+                                                                             //         4: HOST_COM_UPLOAD_TEST
+                                                                             //         5: DRIVE_COM_READ_TEST
+                                                                             // [arg2]  num of data
+                                                                             // [arg3]  data size in byte
+                                                                             // [arg4]  momory address
+TEST_PARAM  bTestResultFileName                            "/result/00000001.000"             // 100 bytes max
+TEST_PARAM  bTestPfTableFileName                           "c:/!lts/!system/!etc/ec2pf.tbl"   // 100 bytes max
+TEST_PARAM  bTestMfgId                                     "E?????"                           // 6 bytes. '?' is wild card
+TEST_PARAM  bTestLabelMfgIdOffset                          0                                  // 0-7 bytes.  MDGID control 4byte->6byte
+TEST_PARAM  bTestSerialNumber                              "????????"                         // 8 bytes. '?' is wild card
+TEST_PARAM  bTestDefaultBadHeadTable                       0x9 0x8 0x7 0x6 0x5 0x4 0x3 0x2 0x1 0x0
+                                                           // GMK 10HD 0x9 0x8 0x7 0x6 0x5 0x4 0x3 0x2 0x1 0x0
+                                                           // GMK  8HD 0x7 0x6 0x5 0x4 0x3 0x2 0x1 0x0 0xf 0xf
+                                                           // GMK  6HD 0x7 0x6 0x5 0x4 0x3 0x2 0xf 0xf 0xf 0xf
+TEST_PARAM  bTestUartProtocol                              1
+TEST_PARAM  dwDriveTestElapsedTimeSec                      0000:00:00 // hhhh:mm:ss
+TEST_PARAM  dwDriveTestIdentifyTimeoutSec                  0000:10:00 // hhhh:mm:ss
+TEST_PARAM  dwDriveTestStatusPollingIntervalTimeSec        0000:00:40 // hhhh:mm:ss
+TEST_PARAM  dwDriveTestCutoffTimeoutSec                    0010:54:00 // hhhh:mm:ss
+TEST_PARAM  dwDriveTestTimeoutSec                          0012:34:00 // hhhh:mm:ss
+TEST_PARAM  dwDriveTestRawdataDumpTimeoutSec               0001:30:00 // hhhh:mm:ss
+TEST_PARAM  dwDriveFinalTestElapsedTimeSec                 0000:00:00 // hhhh:mm:ss  for final part
+TEST_PARAM  dwDriveFinalTestCutoffTimeoutSec               0003:41:00 // hhhh:mm:ss  for final part
+TEST_PARAM  dwDriveFinalTestTimeoutSec                     0004:21:00 // hhhh:mm:ss  for final part
+
+
+
+TEST_PARAM  dwDrivePowerSupply5V                           5000       // Range: 4500 -to- 5000 (4.5V -to- 5.5V)
+TEST_PARAM  dwDrivePowerSupply12V                          12000      // Range: 10800 -to- 13200 (10.8V -to- 13.2V)
+TEST_PARAM  dwDrivePowerOnWaitTime                         90         // Range: > 0 in Sec (e.g. 20 sec for 3D model, 30sec for 5D model, refer drive function spec)
+TEST_PARAM  dwDrivePowerOffWaitTime                        10         // Range: > 0 in Sec (e.g. 20 sec for 2D model, 30sec for 5D model, refer drive function spec)
+TEST_PARAM  isBadHeadReport                                0
+TEST_PARAM  isMultiGrading                                 1          // shall turn off for old product (GMK, PFV, VNF, ...)
+TEST_PARAM  isTesterLogReportEnable                        7          // report if (Bit0:Pass, Bit1:Fail, Bit2:GODx)
+TEST_PARAM  dwTesterLogSizeKByte                           64         // Log Cyclic Buffer Size in KByte (DANGER: Must be < 128)
+TEST_PARAM  dwTestUartBaudrate                             1843200     // Uart port Baudrate bps
+TEST_PARAM  wDriveEchoVersion                              4          // Echo Data format version
+TEST_PARAM  wDriveECClength                                16         // ECC byte length
+TEST_PARAM  wDriveMaxbufferpagesize                        128        // SRST Max buffer size for reporting (JPT or later )
+TEST_PARAM  wDriveForceStopPFcode                          0x0031 0x0032 0x0033  // Force Error Stop PF code by SRST (JPT or later )
+TEST_PARAM  wReadBlocksize                                 0x400      // Size Block Read Form Drive
+TEST_PARAM  wParamPageNumber                               2          // Parametric Data Header Page Number DT is 1 MB is 2
+
+
+
+// ---------------------------------------------------------------------------------------------------
+// Keyword  Name                    Address     Address   Size      AccessFlag EndianFlag     ReportFlag
+//          20 Byte Fixed                       Offset    [Byte]    0:Direct   0:8b           0:No Report
+//          Including Space                               Max64KB   1:Indirect 1:16bLE->8b    1:Get & Report before Rawdata Dump
+//                                                                  2:Echo     2:32bLE->8b    2:Get & Report after Rawdata Dump
+//                                                                             3:16bLE->16b   3:Get before Rawdata Dump & Report after Rawdata Dump
+//                                                                             4:32bLE->32b   '?':Report after ? Signature Finished
+//                                                                             6:Write mode(only 1 word writing)
+//                                                                  3:direct access on Srst Top address + offset
+//                                                                  4:Indirect access on Srst Top address + offset
+// ---------------------------------------------------------------------------------------------------  sample of EB7,MNR,MR
+//DRIVE_INFO  "SRST_TOP_ADDRESS    "  0x009E6800  0         4         0          0              0S
+DRIVE_INFO  "SRST_TOP_ADDRESS    "  0x000001FC  0         4         2          4              0
+DRIVE_INFO  "SERIALNUMBER        "  0x000001D6  0         8         2          1              0
+DRIVE_INFO  "MFGID               "  0x000001D0  0         6         2          1              0
+DRIVE_INFO  "ServoSectorNumber   "  0x00000114  0         2         2          3              0
+DRIVE_INFO  "HeadNumber          "  0x00000116  0         2         2          0              0
+DRIVE_INFO  "MFGID_ON_LABEL      "  0x00000000  0x5F0     6         3          0              0
+DRIVE_INFO  "SRSTPARAMETER       "  0x00000000  0x400     512       3          0              1
+DRIVE_INFO  "HEADTABLE           "  0x00000118  0         10        2          0              1
+DRIVE_INFO  "ZONEPARAMETER       "  0x00000000  0x40      0x8C00    4          0              1
+DRIVE_INFO  "SRSTRESULT          "  0x00000000  0x14      4         3          0              0
+DRIVE_INFO  "PESHEAD             "  0x00000000  0x572     20        3          3              0
+DRIVE_INFO  "PESDATAUARTHD       "  0x00000000  0x14      4         3          4              0
+DRIVE_INFO  "DriveParameterByte  "  0x00000000  0x59C     2         3          3              0   //Parametcic Data Size(Byte)
+DRIVE_INFO  "DriveParameter      "  0x00000000  0x14      0         3          4              0
+//DRIVE_INFO  "SRVM_DUMP           "  0x00000000  0x38      10240     4          0              3
+DRIVE_INFO  "CHNL_IMAGE          "  0x00000000  0x3C      0x4A00    4          0              3
+DRIVE_INFO  "TPI_INFORMATION     "  0x00000122  0         20        2          0              3
+DRIVE_INFO  "MicroRevisionLevel  "  0x00000000  0         8         2          0              3
+DRIVE_INFO  "SRSTALLSTATUS       "  0x00000000  0x400     3072      3          0              2    
+DRIVE_INFO  "SpindleRpm          "  0x00000184  0         2         2          3              0
+DRIVE_INFO  "PASS2ID             "  0x00000000  0x45A     4         3          6              0   //Pass2ID write location ,sample of EB7,MNR,MRS
+DRIVE_INFO  "TEMPERATURE         "  0x00000000  0x24      1         4          0              0
+DRIVE_INFO  "STEP_COUNT          "  0x00000000  0x40E     1         3          0              0
+DRIVE_INFO  "STATUS_AND_CONTROL  "  0x00000000  0x464     2         3          3              0
+DRIVE_INFO  "IMMEDIATE_FLAG      "  0x00000000  0x463     1         3          0              0
+DRIVE_INFO  "UART_FLAG           "  0x00000000  0x462     1         3          0              0
+DRIVE_INFO  "LASTPAGE            "  0x00000000  0x424     2         3          3              0
+DRIVE_INFO  "LASTPOINTER         "  0x00000000  0x426     2         3          3              0
+DRIVE_INFO  "ERRORCODE           "  0x00000000  0x408     2         3          0              0   //
+DRIVE_INFO  "GRADING_FLAG        "  0x00000000  0x47C     4         3          0              0   //addition for grading (For MRN)
+DRIVE_INFO  "GRADING_FLAG_WF     "  0x00000000  0x5EC     4         3          0              0   //WaterFallGrading(Previous graidng is 0x47C)
+DRIVE_INFO  "OFFSET_HEAD         "  0x00000000  0x414     1         3          0              0   
+DRIVE_INFO  "STATUS_AND_CONTROL_B"  0x00000000  0x465     1         3          6              0   //Byte Writing

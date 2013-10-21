@@ -1,0 +1,383 @@
+1209
+--------------------------------------------
+1) BZ 2877 - Fixed getTemperatureEnvelope to return the temperature in tenths.
+2) Modified siwriteDriveMemory to validate the response from receive buffer to check for
+   transmit halt errors
+
+1208
+-------------------------------------------
+Include terSioCommon.h header file in libsi.h
+
+1207
+-------------------------------------------
+1) Implemented Ability to mask TER_Notifier Errors.  Only TER_Notifier_TempRampNotCompletedis maskable at this point
+2) Fixed ability to switch from Uart3 to Uart2 mode without having to reset.
+3) Added wapitests test11 and test12 
+
+1206
+-------------------------------------------
+1) Fixed Initialization of CCB_DEBUG variables for batch test in uart3test
+2) Incorporated clearFPGABuffers
+
+1205
+-------------------------------------------
+1) Fixed the TX halt error with the MRPC protocol. SIO application will
+   now return this error as response status. The wrapper will now validate
+   using the new response status
+
+1204
+--------------------------------------------
+1) Hitachi 3.6
+2) Changed uart3protocol timings to microseconds from milliseconds
+1201
+--------------------------------------------
+1) Implemented GetEventTrace
+
+1200
+--------------------------------------------
+1) Added GetElapsedTimeInMicroSec and added support for getting
+   timestamp from sio application
+
+1199
+--------------------------------------------
+1) Added MFG mode option in uart3test.cpp
+
+1198
+-----------------------------------------
+1) Fixed a printing error while printing the SIO library version number
+2) Fixed bugs in setVoltageRiseTime and setVoltageFallTime so that it doesn't
+   set anything if 12V values are 0.
+
+1197
+--------------------------------------
+1) Fixed VoltageRiseTime and VoltageFallTime methods to take care of invalid values.
+
+1196
+-------------------------------------
+1) Added Uart3PerformanceTest in uart3test.cpp
+
+1195
+-------------------------------------
+1) Bug fixes
+2) Changes to use the new SIO library
+
+1194
+---------------------------------------
+1) UART3 Phase3 implementation
+2) Added a new test uart3test to run the UART3 batch test
+
+1193
+-----------------------------------
+1) Added support for Force Manufacturing Mode functionality
+2) Added wapitest t00 to test the new functionality
+3) Fixed bugs in isOnTemp and isDrivePlugged to return the correct values
+4) Fixed getCellInventory segmentation fault error
+
+1192
+-------------------------------
+1) Added support for remaining UART3 commands
+2) Added wapitest t97 to test the new commands
+
+1191
+-------------------------------
+1) changed the get last error cause implementation yet again
+
+1190
+--------------------------------
+1) Fixed a bug in error handling mechanism where it will overwrite the previous error code.
+
+1189
+--------------------------------
+1) Fixed the error handling mechanism. The first error will be cached and subsequent errors will be ignored.
+
+1188
+-------------------------------
+1) Added error handling for TER_Status_Timeout. It will behave the same as rpc failure.
+2) siFinalize will not try to disconnect if the sio library object is not present.
+
+1187
+-------------------------------
+1) Changed siGetLastErrorCause to return the last error code as well
+
+1186
+------------------------------
+1) Delete the neptune_sio2 object pointer in TerSioDisconnect otherwise it will cause memory leak
+2) Change the code to support returning correct error codes by each method. Modified siGetLastErrorCause
+
+1185
+------------------------------
+1) Changed the description of isOnTemp in libsi.h to mention correct return values
+2) Changed the status check for TerFlushReceiveBuffer
+
+1184
+------------------------------
+1) Updated the makefile to use the shared library.
+2) Simplify siIntialize to look at fewer flags to upgrade the slot firmware
+
+1183
+------------------------------
+1) Fixed a bug in LogErrorWithJournal where it was giving GetSlotStatus the wrong ID
+2) Changed uart2Interface setVoltageLimit 12v upper and lower to < and >.
+
+1182
+------------------------------
+1) Checked in libsi.h with definition for siGetLastErrorCause
+2) Fixed bug 1286 created method siGetLastErrorCause
+3) Added support for elapsed time measurement in UART3 protocol
+4) Removed all the methods in uart3 interface except for Query command
+
+1181
+------------------------------
+1) Removed envApi.h neptune_hitachi_comm.h and neptune_hitachi_comm.c
+2) Renamed neptune_hitachi_interface.cpp to uart2Interface.cpp.
+3) Added common.h, common.cpp and commonEnums.h
+4) Added libu3.h, uart3Protocol.cpp and uart3Interface.cpp for UART3 support.
+5) Removed unnecessary build scripts and make files
+
+1180
+-----------------------------
+ 1) Fixed the segmentation fault in terPrintf
+
+1179
+-----------------------------
+ 1) Use the updated neptune_sio2 library
+
+1178
+--------------------------------
+ 1) Corrected a log messge in terPrintError
+
+1177
+-------------------------------
+1) Hitachi Release 3.3.
+2) Fixed Htemp related bugs. Moved the implementation to neptune_sio2 library
+3) Changed the log file extension to be text file and made the slot id to be three digit in the file name.
+
+1176
+-----------------------------
+1) Update usage of constants TER_Notifier* and IsDrivePresent
+ 
+slotio20110513_build_1175.tqz
+-----------------------------
+1) bump release number for HTEMP patch.
+ 
+slotio20110513_build_1174.tqz
+-----------------------------
+ 1) Add range check for htemp algrithm as protection from wrong htemp readings.
+
+slotio20110510_build_1173.tqz
+-----------------------------
+ 1) Add support for row based temp compensation [conditionally disabled in this release]
+ 2) Htemp correction algorithm
+
+slotio20110422_build_1172.tqz
+-----------------------------
+ 1) Changed build number to reflect neptunesio2 lib changes
+
+slotio20110407_build_1169.tqz
+-----------------------------
+ 1) Optimized 64K support
+ 2) Multi-level logging.
+ 3) Display 924x version info. Fix DIO/SIO part number display. Added DIO board type.
+ 4) Slot Error handling. If any slot error, return code will be TerError from siInitialize(), getVoltageErrorStatus() & getTemperatureErrorStatus().
+ 5) tcLogger integration - testcase will be required to compile switch WAPI_TCLOGGER_ENABLE switch in makefile.
+ 6) Implementation of setVoltageInterval().
+ 7) 12V rise/fall time
+
+
+slotio20110309_build_1166.tqz
+-----------------------------
+ 1) Implemented getActualCurrent() to read actual current for 5V and 12V
+ 2) Changed Logging - Log file for a slot is not one big file any more. A log file will be called siSetDebugLogLevel() is called.
+ 	Date and time stamps are used in the log file names [Example: slot10_2011.03.09.10.55.56.log]
+ 3) Fixed potential memory leak in Neptune SIO2 lib.
+
+
+slotio20110307_build_1165.tqz
+-----------------------------
+ 1) setVoltageRiseTime & getVoltageRiseTime
+ 2) Added terPrintSlotInfo() print version info and serial numbers. 
+ 3) Re-implement siSetDriveFanRPM with real SIO API.
+ 4) TLOG_EXIT now prints function name.
+ 5) 12V control for Enterprise
+ 6) Fixed truncation errors in the case x100 numbers. Rounding up instead.
+ 7) In case of RPC errors, disconnect, reconnect and retry failed command X times.
+ 8) SIO Journal related changes a) Disable logging by default b) New API which is slot specific c) Print SIO Journal only on error.
+
+
+slotio20110224_p3_1r1_envelope_extra_logging.tqz release
+--------------------------------------------------------
+ 1) Temperature Envelope support.
+ 2) Enhanced logging - Log return values for function calls where return values are in function parameters.
+ 3) Validate setTargetTemperature, setPositiveTemperatureRampRate, setNegativeTemperatureRampRate by reading back from SIO/DIO
+
+slotio20110208_p3r1_3_one_slot_sio_dio_state.tqz release
+--------------------------------------------------------
+ 1) Convert 0 based slot indices to 1 based
+ 2) Implementation of SIO/DIO state detection.
+
+
+slotio20110204_p3r1_3_fpga_300us_turnaround.tqz release
+-------------------------------------------------------
+ 1) This release includes updated FPGA (40.1) which is expected to fix the following issues.
+ 	a) 	High UART2 errors - This was related to smaller turnaround delay (15us) after we receive good response (0x80) from the drive.
+ 		In this FPGA, this delay is fixed 300us.
+ 	b) 	Long duration test failure - All slots were failing after 1+ hours. After the first screeching halt, all future commands
+ 		to drives were failing.
+ 	This releases contains new FPGA (4.14) with fixed 300us (same as inter character delay for EB7 drives) turnaround delay.
+ 2) Added declaration of mutex_slotio as requested by Katayama-san.
+ 3) Added calls to set inter character delay, ack timeout and logging enable in siInitialize, as requested by Katayama-san
+ 4) Enabled isSlotThere() in siInitialize.
+ 5) Fixed setSafeHandlingTemperature(). This call was always failing before.
+ 6) respLength was not correctly set in TER_SioReceiveBuffer call. Because of this echo and read commands were taking longer
+ 	time than expected. Fixed this in many APIs.
+ 7) Testcase calls many APIs with 30 secs as timeout value. SIO API supports timeouts only up to 10secs. Added code to truncate
+ 	timeouts to 10sec.
+ 8) Initial code for SIO/DIO status and temp envelope. Code exists, but commented out.
+ 9) Improvements/clean up/enhancements to wapitest (not applicable to Hitachi since this Teradyne's test code)
+
+
+slotio20110113_p3r1_1.tqz release
+---------------------------------------------
+ 1) Supported Phase 3 APIs -  getHeaterOutput, getCellInventory, getReferenceTemperature, siGetDriveUartVersion, 
+ 	siResetDrive,siSetDriveDelayTime, setHeaterOutput, getShutterPosition, setShutterPosition, 
+ 	setTemperatureSensorCarlibrationData, setVoltageCalibration, siSetDriveFanRPM, siSetElectronicsFanRPM
+ 2) Comment out isSlotThere() from siInitialize()
+
+
+slotio20110106_p2r1_1_sio_journal.tqz release
+---------------------------------------------
+ 1) Incorporated changes from Katayama-san
+ 2) Changed the name of hitachi test utility to a more meaningful name (wapitest) from (hitachi2)
+ 3) Added preliminary coding for 64K FIFO support [Not tested. Do not make a call to read > 2K]
+ 4) Added SIO journal support. SIO Journal should be enabled by siSetDebugLogLevel(). SIO Journal will
+ 	be printed to a log at the end of a test (siFinalize)
+
+
+
+slotio20101220_p2r1_1_screeching_halt.tqz
+-----------------------------------------
+Release Notes
+ 1) Added API for bulk read - siBulkReadFromDrive().
+ 2) FPGA screeching halt - With FPGA 4.11, if an error is encountered during transmission to drive,
+ 	it will halt transmission and sets a status bit. Wrapper API is responsible for detecting and
+ 	clearing this condition and pushing the error code to Testcase for error handling. Wrapper 
+ 	API return values has changed [0=success, 1=Teradyne Error, 2=Drive Error].
+ 3) Preliminary coding changes for journaling [SIO level log].
+ 4) Code change and restructuring around logging and tracing..
+
+Notes: Write drive memory test is temporarily removed from the test suite, until a firmware fix from
+       Hitachi is available.
+
+
+slotio20101214_p2r1_0.tqz
+-------------------------
+Release Notes
+ 1) Beta2 API Support:
+ 	getTargetTemperature
+ 	getTemperatureErrorStatus
+ 	getPositiveTemperatureRampRate
+ 	getNegativeTemperatureRampRate
+ 	getTargetVoltage
+ 	getUartPullupVoltage
+ 	getCurrentLimit
+ 	getVoltageErrorStatus
+ 	getVoltageLimit
+ 	isOnTemp
+ 	setCurrentLimit
+ 	getTemperatureEnvelope
+ 	setTemperatureEnvelope
+ 	setTemperatureLimit
+ 	getTemperatureLimit
+ 	setVoltageLimit
+ 	siGetUartBaudrate
+ 	siSetLed
+ 2) Preliminary error logging support. Added siSetDebugLogLevel(Byte bCellNo, Byte bLogLevel)
+ 	to enable/disable logging (bLogLevel=0=disable). Logs are written to /var/tmp/slotN.log, 
+ 	where N=slot number
+ 3) Changed some of the hard-coded values to #defines.
+ 
+Notes: Write drive memory test is temporarily removed from the test suite, until a firmware fix from
+       Hitachi is available.
+
+Sample Debug Log File:
+----------------------
+2010/12/14,01:47:26,siEchoDrive--->
+2010/12/14,01:47:26,Req Pkt: aa550404000000000038ffc8
+2010/12/14,01:47:27,Res Pkt: 808080808080aa55000000404543325142345a330000000000000000000000000000000000000000
+2010/12/14,01:47:31,siReadDriveMemory--->
+2010/12/14,01:47:31,Req Pkt: aa5505050001083310000002e7ca
+2010/12/14,01:47:31,Res Pkt: 80808080808080aa550001000a000055a0
+2010/12/14,01:47:35,siReadDriveMemory--->
+2010/12/14,01:47:35,Req Pkt: aa55050500010833100000cae702
+2010/12/14,01:47:36,Res Pkt: 80808080808080aa55000100d2000000000000000000000000000000000000000000000000000000
+2010/12/14,01:47:40,siReadDriveMemory--->
+2010/12/14,01:47:40,Req Pkt: aa5505050001083310000192e63a
+2010/12/14,01:47:40,Res Pkt: 80808080808080aa550001019a000000000000000000000000000000000000000000000000000000
+2010/12/14,01:47:44,siReadDriveMemory--->
+2010/12/14,01:47:44,Req Pkt: aa550505000108331000025ae572
+
+
+Debug Log and Error tracing:
+----------------------------
+The following 3 types of logging shall be supported. 
+
+1) Error tracing - Enabled by default on each slot - reports back only the error.
+   Supported in this release
+2) Wrapper level debugging
+   Supported in this release - see the sample file output 
+3) Journal Diagnostics - - Must enable a slot, a series of slots or all slots - reports, with time stamps, the entire set of transactions
+   from receive to response. 
+   Not supported in this release 
+   
+   Sample Journal Diagnostics:
+   Time: 5275.047289: (-1.996448): slotid:   0, State:  0 <SS_STATE_init>,  Type: 1 <state>, Status: 0
+   Time: 5275.047306: (0.000000): slotid:   0, State:  1 <SS_STATE_idle>,  Type: 1 <state>, Status: 0
+   Time: 5275.047468: (0.000162): slotid:   0, State: 77 <SS_STATE_get_packet_length>,  Type: 1 <state>, Status: 0
+   Time: 5275.047703: (0.000397): slotid:   0, State: 79 <SS_STATE_get_network_protocol_type>,  Type: 1 <state>, Status: 0
+   Time: 5275.047793: (0.000487): slotid:   0, State: 14 <SS_STATE_get_command_rpc>,  Type: 1 <state>, Status: 0
+   Time: 5275.047893: (0.000587): slotid:   0, State: 15 <SS_STATE_switch_of_command_rpc>,  Type: 1 <state>, Status: 0
+   Time: 5275.047938: (0.000632): slotid:   0, State: 54 <SS_STATE_get_slot_settings>,  Type: 1 <state>, Status: 0
+   Time: 5275.050175: (0.002869): slotid:   0, State: 55 <SS_STATE_get_slot_settings_complete>,  Type: 1 <state>, Status: 0
+   Time: 5275.050528: (0.003222): slotid:   0, State: 71 <SS_STATE_do_error_log>,  Type: 1 <state>, Status: 0
+   Time: 5275.050841: (0.000000): slotid:   0, State:  1 <SS_STATE_idle>,  Type: 1 <state>, Status: 0
+   Time: 5275.050993: (0.000152): slotid:   0, State: 77 <SS_STATE_get_packet_length>,  Type: 1 <state>, Status: 0
+
+
+slotio20101207_p1r1_0.tqz
+-------------------------
+Release Notes
+-------------
+
+ 1) Incorporated patch from HGST 
+ 2) Multiple baud rate support (115200,460800,921600,1843200,2778000 3333000,4167000,5556000,8333000)
+ 3) Voltage margining is working. setTargetVoltage() can be used to set 5V +- 10%.
+ 4) UART level is fixed at 2.5V. However, setting to 0 will enable staggered spin.
+ 5) Added siBulkWriteDriveMemory(). This function disables UART2 before sending and
+ 	re-enables after done.
+ 6) Added code to print serial no/ver. info in siInitialize.
+ 7) Added SIO IP address support. Use export SIOIPADDRESS="xx.xx.xx.xx". If this env is
+ 	not defined, ip address will default to 10.101.1.2
+ 8) Added siGetLastErrors for debugging SIO errors. This will be called in TERERROR(). This function
+ 	last 132 bytes of console info.
+ 9) Added code to flush receive buffer before sending Echo, Read and Write command.
+
+ Notes: MG: I saw intermittent failures writing to the drive memory. Sometimes I don't read the value which was written. 
+        Sometimes WAPI does not get the expected number of bytes. 
+        HGST: We are investigating same problem in Fujisawa. Write command is completed with correct checksum value, 
+        but read back data value at same memory address does not match to write data value. I heard some drive firmware 
+        level has this issue, so now we are trying to update drive firmware then will check it again
+    
+
+
+slotio20101201_fixed_pup_interchar_delay.tqz
+--------------------------------------------
+
+Release Notes
+-------------
+ 1) Fixed DUT powerup. Echo command does not require <slot> 1 pup from console anymore.
+ 2) Added siGetInterCharacterDelay and siSetInterCharacterDelay. 
+ 3) isSlotThere is fixed. Returns correct status code.
+ 4) Implemented siSetUartProtocol. Depending on the prototype, Echo and Read command
+ 	will perform endian swap.  
+ Note 1) I saw intermittent failures writing to the drive memory. Sometimes I don't read the value which was written. Sometimes WAPI does not get the expected number of bytes. 
+ 

@@ -1,0 +1,22 @@
+#=============================================================
+#
+#  MODEL TABLE FOR OPTIMUS CHECK PROGRAM
+#
+#          HGST FUJISAWA
+#          Test Engineering
+#
+#=============================================================
+
+# ------------------------------------------------------------
+# Panther-B
+# ------------------------------------------------------------
+AutoConfigFile6600.PB????:c:\!lts\!system\!st\config.chktmp
+AutoConfigFile6600.PD????:c:\!lts\!system\!st\config.chktmp
+.PB????:c:\!lts\!system\!st\chamber.chktmp
+.PD????:c:\!lts\!system\!st\chamber.chktmp
+
+# ------------------------------------------------------------
+# Panther-C
+# ------------------------------------------------------------
+AutoConfigFile6600.PC????:c:\!lts\!system\!st\config.chktmp
+.PC????:c:\!lts\!system\!st\chamber.chktmp

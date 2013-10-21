@@ -1,0 +1,4 @@
+##-------------------
+INCLUDE1  = /usr/xcal/dev/include
+LIBS    = -lCellEnv_20-2.6.18-164.el5 -lCellRIMHGSTSerial3DP_1-2.6.18-164.el5
+LIBPATH = /usr/xcal/run/lib
